@@ -76,10 +76,9 @@
                     FacePicture5.Image = My.Resources.NoFace
                 End If
                 If i = Stage1 Then
-                    LevelLockCheckBox.CheckState = CheckState.Checked
+                    LevelLockCheckBox.Checked = CheckState.Checked
                     LevelLockCheckBox.Enabled = False
                 Else
-                    LevelLockCheckBox.CheckState = CheckState.Unchecked
                     LevelLockCheckBox.Checked = StageLockStates(i)
                     LevelLockCheckBox.Enabled = True
                 End If
