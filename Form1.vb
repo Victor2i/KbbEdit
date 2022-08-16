@@ -37,17 +37,27 @@
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
-        Button1.Enabled = False
-        Button2.Enabled = False
-        Button3.Enabled = False
+        If Button1.Enabled = True AndAlso Button2.Enabled = True AndAlso Button3.Enabled = True Then
+            Button1.Enabled = False
+            Button2.Enabled = False
+            Button3.Enabled = False
 
-        KbbEditor.SaveSave()
+            KbbEditor.SaveSave()
 
-        MsgBox("Successfully saved!", vbOKOnly + vbInformation)
+            MsgBox("Successfully saved!", vbOKOnly + vbInformation, "")
 
-        Button1.Enabled = True
-        Button2.Enabled = True
-        Button3.Enabled = True
+            Button1.Enabled = True
+            Button2.Enabled = True
+            Button3.Enabled = True
+        Else
+            MsgBox("Please open a save first!", vbOKOnly + vbExclamation, "Error while saving save file")
+        End If
+    End Sub
+
+    Private Sub QuitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitToolStripMenuItem.Click
+        If MsgBox("Unsaved changes will be lost.", vbYesNo + vbExclamation, "Before closing") = vbYes Then
+            Close()
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
