@@ -243,4 +243,23 @@
         ScoreEditorSelectFace.FTCindex = 5
         ScoreEditorSelectFace.Show()
     End Sub
+
+    Private Sub ScoreEditor_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        KbbEditor.KbbSaveInfo.Stage2Unlocked = StageLockStates(1)
+        KbbEditor.KbbSaveInfo.Stage3Unlocked = StageLockStates(2)
+        KbbEditor.KbbSaveInfo.Stage4Unlocked = StageLockStates(3)
+        KbbEditor.KbbSaveInfo.BonusStageUnlocked = StageLockStates(4)
+        KbbEditor.KbbSaveInfo.ExtraStageUnlocked = StageLockStates(5)
+        KbbEditor.KbbSaveInfo.SAFStage1Unlocked = StageLockStates(6)
+        KbbEditor.KbbSaveInfo.SAFStage2Unlocked = StageLockStates(7)
+        KbbEditor.KbbSaveInfo.SAFBonusStageUnlocked = StageLockStates(8)
+        KbbEditor.KbbSaveInfo.Stage2Unlocked = StageOtherLockStates(1)
+        KbbEditor.KbbSaveInfo.Stage3Unlocked = StageOtherLockStates(2)
+        KbbEditor.KbbSaveInfo.Stage4Unlocked = StageOtherLockStates(3)
+        KbbEditor.KbbSaveInfo.BonusStageUnlocked = StageOtherLockStates(4)
+        KbbEditor.KbbSaveInfo.ExtraStageUnlocked = StageOtherLockStates(5)
+        KbbEditor.KbbSaveInfo.SAFStage1Unlocked = StageOtherLockStates(6)
+        KbbEditor.KbbSaveInfo.SAFStage2Unlocked = StageOtherLockStates(7)
+        KbbEditor.KbbSaveInfo.SAFBonusStageUnlocked = StageOtherLockStates(8)
+    End Sub
 End Class

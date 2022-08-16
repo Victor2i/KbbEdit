@@ -466,7 +466,7 @@
         Next
 
         For i = 0 To 48 ' Save faces
-            File.ExportUInt32(KbbSave, &H0 + (i * &H40), KbbImportedFaces(i).FaceID)
+            File.ExportUInt32(KbbSave, &H0 + (i * &H40), KbbFaces(i).FaceID)
 
             If KbbFaces(i).FRIindex <> -1 Then
                 Dim OutData As Byte()
