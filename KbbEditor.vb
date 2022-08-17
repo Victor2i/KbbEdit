@@ -1,5 +1,6 @@
 ﻿Public Class KbbEditor
     Public Shared KbbSave As Byte()
+    Public Shared Saved As Boolean
     Public Shared KbbCRC As UInt32
     Public Shared KbbFaces(48) As KbbFaceInfo
     Public Shared FacesOrder(48) As UInt32
@@ -302,10 +303,10 @@
         ReDim FaceImages(My.Computer.FileSystem.GetFiles(Form1.FolderBrowserDialog1.SelectedPath).Count - 2)
         Dim FRIindex = 0 ' Index used to locate faster the image/raw image of a face.
 
-        For i = 0 To 9 ' Load UFO faces properties
+        For i = 0 To 9 ' Load UFO faces
             KbbImportedFaces(i).FaceID = BitConverter.ToUInt32(KbbSave, &HDF8 + (i * &H28))
 
-            KbbFaces(i).FRIindex = -1
+            KbbImportedFaces(i).FRIindex = -1
             If My.Computer.FileSystem.FileExists(Form1.FolderBrowserDialog1.SelectedPath + "\PhotoP" + CStr(CInt(Math.Floor(i / 10))) + CStr(i Mod 10) + ".dat") Then
                 Dim Buffer As Byte()
                 Dim NIFace As KbbFace
@@ -371,7 +372,7 @@
                             SmallestID = KbbFaces(i).FaceID
                         End If
                     End If
-                Else ' If we haven't found the smalled ID of all faces yet...
+                Else ' If we haven't found the smallest ID of all faces yet...
                     If KbbFaces(i).FaceID < SmallestID Then
                         SmallestID = KbbFaces(i).FaceID
                     End If
