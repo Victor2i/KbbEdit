@@ -61,40 +61,54 @@
             FaceBox1.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(-1 + 10 * FacePage)) ' -1... Kinda feels weird to see this in an index.
         End If
         FaceBox2.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(0 + 10 * FacePage))
+        FaceBox2.Enabled = True
         If KbbEditor.FacesOrder(0 + 10 * FacePage) = &HFFFFFFFFUI Then
             FaceBox2.Enabled = False
         End If
         FaceBox3.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(1 + 10 * FacePage))
+        FaceBox3.Enabled = True
         If KbbEditor.FacesOrder(1 + 10 * FacePage) = &HFFFFFFFFUI Then
             FaceBox3.Enabled = False
         End If
         FaceBox4.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(2 + 10 * FacePage))
+        FaceBox4.Enabled = True
         If KbbEditor.FacesOrder(2 + 10 * FacePage) = &HFFFFFFFFUI Then
             FaceBox4.Enabled = False
         End If
         FaceBox5.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(3 + 10 * FacePage))
+        FaceBox5.Enabled = True
         If KbbEditor.FacesOrder(3 + 10 * FacePage) = &HFFFFFFFFUI Then
             FaceBox5.Enabled = False
         End If
         FaceBox6.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(4 + 10 * FacePage))
+        FaceBox6.Enabled = True
         If KbbEditor.FacesOrder(4 + 10 * FacePage) = &HFFFFFFFFUI Then
             FaceBox6.Enabled = False
         End If
         FaceBox7.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(5 + 10 * FacePage))
+        FaceBox7.Enabled = True
         If KbbEditor.FacesOrder(5 + 10 * FacePage) = &HFFFFFFFFUI Then
             FaceBox7.Enabled = False
         End If
         FaceBox8.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(6 + 10 * FacePage))
+        FaceBox8.Enabled = True
         If KbbEditor.FacesOrder(6 + 10 * FacePage) = &HFFFFFFFFUI Then
             FaceBox8.Enabled = False
         End If
         FaceBox9.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(7 + 10 * FacePage))
+        FaceBox9.Enabled = True
         If KbbEditor.FacesOrder(7 + 10 * FacePage) = &HFFFFFFFFUI Then
             FaceBox9.Enabled = False
         End If
         FaceBox10.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(8 + 10 * FacePage))
+        FaceBox10.Enabled = True
         If KbbEditor.FacesOrder(8 + 10 * FacePage) = &HFFFFFFFFUI Then
             FaceBox10.Enabled = False
+        End If
+        If KbbEditor.FacesOrder(9 + 10 * FacePage) = &HFFFFFFFFUI Then
+            RightPageButton.Enabled = False
+        Else
+            RightPageButton.Enabled = True
         End If
     End Sub
 
@@ -146,6 +160,11 @@
         FaceBox10.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(8 + 10 * FacePage))
         If KbbEditor.FacesOrder(8 + 10 * FacePage) = &HFFFFFFFFUI Then
             FaceBox10.Enabled = False
+        End If
+        If KbbEditor.FacesOrder(9 + 10 * FacePage) = &HFFFFFFFFUI Then
+            RightPageButton.Enabled = False
+        Else
+            RightPageButton.Enabled = True
         End If
     End Sub
 
