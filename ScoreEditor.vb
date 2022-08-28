@@ -40,6 +40,7 @@
         For i = 0 To 8
             If i = Stage Then
                 SelectedStage = i
+                BestComboBox.Text = KbbEditor.KbbScores(i).BestComboBox
                 ScoreBox1.Text = KbbEditor.KbbScores(i).Score1
                 ScoreBox2.Text = KbbEditor.KbbScores(i).Score2
                 ScoreBox3.Text = KbbEditor.KbbScores(i).Score3
@@ -194,11 +195,11 @@
     End Sub
 
     Private Sub ScoreBox1_ValueChanged(sender As Object, e As EventArgs) Handles ScoreBox1.ValueChanged
-        KbbEditor.KbbScores(SelectedStage).Score1 = CStr(ScoreBox1.Value)
+        KbbEditor.KbbScores(SelectedStage).Score1 = ScoreBox1.Value
     End Sub
 
     Private Sub ScoreBox2_ValueChanged(sender As Object, e As EventArgs) Handles ScoreBox2.ValueChanged
-        KbbEditor.KbbScores(SelectedStage).Score2 = CStr(ScoreBox2.Value)
+        KbbEditor.KbbScores(SelectedStage).Score2 = ScoreBox2.Value
     End Sub
 
     Private Sub ScoreBox3_ValueChanged(sender As Object, e As EventArgs) Handles ScoreBox3.ValueChanged
@@ -206,11 +207,15 @@
     End Sub
 
     Private Sub ScoreBox4_ValueChanged(sender As Object, e As EventArgs) Handles ScoreBox4.ValueChanged
-        KbbEditor.KbbScores(SelectedStage).Score4 = CStr(ScoreBox4.Value)
+        KbbEditor.KbbScores(SelectedStage).Score4 = ScoreBox4.Value
     End Sub
 
     Private Sub ScoreBox5_ValueChanged(sender As Object, e As EventArgs) Handles ScoreBox5.ValueChanged
-        KbbEditor.KbbScores(SelectedStage).Score5 = CStr(ScoreBox5.Value)
+        KbbEditor.KbbScores(SelectedStage).Score5 = ScoreBox5.Value
+    End Sub
+
+    Private Sub BestComboBox_ValueChanged(sender As Object, e As EventArgs) Handles BestComboBox.ValueChanged
+        KbbEditor.KbbScores(SelectedStage).BestCombo = BestComboBox.Value
     End Sub
 
     Private Sub FacePicture1_Click(sender As Object, e As EventArgs) Handles FacePicture1.Click

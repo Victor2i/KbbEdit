@@ -25,6 +25,12 @@ Partial Class ScoreEditor
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ScoreEditor))
         Me.Stage1Button = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.BestComboBox = New System.Windows.Forms.NumericUpDown()
+        Me.ScoreBox5 = New System.Windows.Forms.NumericUpDown()
+        Me.ScoreBox4 = New System.Windows.Forms.NumericUpDown()
+        Me.ScoreBox3 = New System.Windows.Forms.NumericUpDown()
+        Me.ScoreBox2 = New System.Windows.Forms.NumericUpDown()
         Me.ScoreBox1 = New System.Windows.Forms.NumericUpDown()
         Me.LevelLockCheckBox = New System.Windows.Forms.CheckBox()
         Me.FacePicture5 = New System.Windows.Forms.PictureBox()
@@ -43,11 +49,12 @@ Partial Class ScoreEditor
         Me.Stage3Button = New System.Windows.Forms.Button()
         Me.Stage2Button = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ScoreBox2 = New System.Windows.Forms.NumericUpDown()
-        Me.ScoreBox3 = New System.Windows.Forms.NumericUpDown()
-        Me.ScoreBox4 = New System.Windows.Forms.NumericUpDown()
-        Me.ScoreBox5 = New System.Windows.Forms.NumericUpDown()
         Me.Panel1.SuspendLayout()
+        CType(Me.BestComboBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ScoreBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ScoreBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ScoreBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ScoreBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ScoreBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FacePicture5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FacePicture4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,10 +62,6 @@ Partial Class ScoreEditor
         CType(Me.FacePicture2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FacePicture1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.ScoreBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ScoreBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ScoreBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ScoreBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Stage1Button
@@ -74,6 +77,8 @@ Partial Class ScoreEditor
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.BestComboBox)
         Me.Panel1.Controls.Add(Me.ScoreBox5)
         Me.Panel1.Controls.Add(Me.ScoreBox4)
         Me.Panel1.Controls.Add(Me.ScoreBox3)
@@ -89,6 +94,71 @@ Partial Class ScoreEditor
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(188, 354)
         Me.Panel1.TabIndex = 3
+        '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label3.Location = New System.Drawing.Point(3, 279)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(128, 34)
+        Me.Label3.TabIndex = 13
+        Me.Label3.Text = "Best combo:"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'BestComboBox
+        '
+        Me.BestComboBox.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.BestComboBox.Increment = New Decimal(New Integer() {50, 0, 0, 0})
+        Me.BestComboBox.Location = New System.Drawing.Point(137, 279)
+        Me.BestComboBox.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        Me.BestComboBox.Name = "BestComboBox"
+        Me.BestComboBox.Size = New System.Drawing.Size(48, 34)
+        Me.BestComboBox.TabIndex = 21
+        Me.BestComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ScoreBox5
+        '
+        Me.ScoreBox5.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.ScoreBox5.Increment = New Decimal(New Integer() {50, 0, 0, 0})
+        Me.ScoreBox5.Location = New System.Drawing.Point(57, 219)
+        Me.ScoreBox5.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        Me.ScoreBox5.Name = "ScoreBox5"
+        Me.ScoreBox5.Size = New System.Drawing.Size(128, 48)
+        Me.ScoreBox5.TabIndex = 20
+        Me.ScoreBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ScoreBox4
+        '
+        Me.ScoreBox4.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.ScoreBox4.Increment = New Decimal(New Integer() {50, 0, 0, 0})
+        Me.ScoreBox4.Location = New System.Drawing.Point(57, 165)
+        Me.ScoreBox4.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        Me.ScoreBox4.Name = "ScoreBox4"
+        Me.ScoreBox4.Size = New System.Drawing.Size(128, 48)
+        Me.ScoreBox4.TabIndex = 19
+        Me.ScoreBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ScoreBox3
+        '
+        Me.ScoreBox3.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.ScoreBox3.Increment = New Decimal(New Integer() {50, 0, 0, 0})
+        Me.ScoreBox3.Location = New System.Drawing.Point(57, 111)
+        Me.ScoreBox3.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        Me.ScoreBox3.Name = "ScoreBox3"
+        Me.ScoreBox3.Size = New System.Drawing.Size(128, 48)
+        Me.ScoreBox3.TabIndex = 18
+        Me.ScoreBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ScoreBox2
+        '
+        Me.ScoreBox2.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.ScoreBox2.Increment = New Decimal(New Integer() {50, 0, 0, 0})
+        Me.ScoreBox2.Location = New System.Drawing.Point(57, 57)
+        Me.ScoreBox2.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        Me.ScoreBox2.Name = "ScoreBox2"
+        Me.ScoreBox2.Size = New System.Drawing.Size(128, 48)
+        Me.ScoreBox2.TabIndex = 17
+        Me.ScoreBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'ScoreBox1
         '
@@ -299,50 +369,6 @@ Partial Class ScoreEditor
         Me.Label1.Text = "Play"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'ScoreBox2
-        '
-        Me.ScoreBox2.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.ScoreBox2.Increment = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.ScoreBox2.Location = New System.Drawing.Point(57, 57)
-        Me.ScoreBox2.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.ScoreBox2.Name = "ScoreBox2"
-        Me.ScoreBox2.Size = New System.Drawing.Size(128, 48)
-        Me.ScoreBox2.TabIndex = 17
-        Me.ScoreBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ScoreBox3
-        '
-        Me.ScoreBox3.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.ScoreBox3.Increment = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.ScoreBox3.Location = New System.Drawing.Point(57, 111)
-        Me.ScoreBox3.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.ScoreBox3.Name = "ScoreBox3"
-        Me.ScoreBox3.Size = New System.Drawing.Size(128, 48)
-        Me.ScoreBox3.TabIndex = 18
-        Me.ScoreBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ScoreBox4
-        '
-        Me.ScoreBox4.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.ScoreBox4.Increment = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.ScoreBox4.Location = New System.Drawing.Point(57, 165)
-        Me.ScoreBox4.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.ScoreBox4.Name = "ScoreBox4"
-        Me.ScoreBox4.Size = New System.Drawing.Size(128, 48)
-        Me.ScoreBox4.TabIndex = 19
-        Me.ScoreBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ScoreBox5
-        '
-        Me.ScoreBox5.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.ScoreBox5.Increment = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.ScoreBox5.Location = New System.Drawing.Point(57, 219)
-        Me.ScoreBox5.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.ScoreBox5.Name = "ScoreBox5"
-        Me.ScoreBox5.Size = New System.Drawing.Size(128, 48)
-        Me.ScoreBox5.TabIndex = 20
-        Me.ScoreBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'ScoreEditor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -356,6 +382,11 @@ Partial Class ScoreEditor
         Me.Name = "ScoreEditor"
         Me.Text = "Score editor"
         Me.Panel1.ResumeLayout(False)
+        CType(Me.BestComboBox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ScoreBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ScoreBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ScoreBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ScoreBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ScoreBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FacePicture5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FacePicture4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -363,10 +394,6 @@ Partial Class ScoreEditor
         CType(Me.FacePicture2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FacePicture1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
-        CType(Me.ScoreBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ScoreBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ScoreBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ScoreBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -395,4 +422,6 @@ Partial Class ScoreEditor
     Friend WithEvents ScoreBox4 As NumericUpDown
     Friend WithEvents ScoreBox3 As NumericUpDown
     Friend WithEvents ScoreBox2 As NumericUpDown
+    Friend WithEvents Label3 As Label
+    Friend WithEvents BestComboBox As NumericUpDown
 End Class
