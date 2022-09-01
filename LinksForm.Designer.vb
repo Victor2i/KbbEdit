@@ -91,7 +91,7 @@ Partial Class LinksForm
         Me.TextBox2.ReadOnly = True
         Me.TextBox2.Size = New System.Drawing.Size(218, 23)
         Me.TextBox2.TabIndex = 7
-        Me.TextBox2.Text = "https://github.com/VictoSq/KbbEdit"
+        Me.TextBox2.Text = "https://github.com/Victor2i/KbbEdit"
         '
         'LinksForm
         '

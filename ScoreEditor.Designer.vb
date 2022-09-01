@@ -108,9 +108,8 @@ Partial Class ScoreEditor
         'BestComboBox
         '
         Me.BestComboBox.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.BestComboBox.Increment = New Decimal(New Integer() {50, 0, 0, 0})
         Me.BestComboBox.Location = New System.Drawing.Point(137, 279)
-        Me.BestComboBox.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        Me.BestComboBox.Maximum = New Decimal(New Integer() {99, 0, 0, 0})
         Me.BestComboBox.Name = "BestComboBox"
         Me.BestComboBox.Size = New System.Drawing.Size(48, 34)
         Me.BestComboBox.TabIndex = 21

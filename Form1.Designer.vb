@@ -30,11 +30,11 @@ Partial Class Form1
         Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LinksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.LinksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -58,21 +58,21 @@ Partial Class Form1
         '
         Me.OpenFileToolStripMenuItem.Image = Global.KbbEdit.My.Resources.Resources.OpenFolder_16x
         Me.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem"
-        Me.OpenFileToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.OpenFileToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OpenFileToolStripMenuItem.Text = "Open save"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Image = Global.KbbEdit.My.Resources.Resources.Save_16x
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'QuitToolStripMenuItem
         '
         Me.QuitToolStripMenuItem.Image = Global.KbbEdit.My.Resources.Resources.Close_red_16x
         Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
-        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.QuitToolStripMenuItem.Text = "Quit"
         '
         'AboutToolStripMenuItem
@@ -86,8 +86,15 @@ Partial Class Form1
         '
         Me.HelpToolStripMenuItem.Image = Global.KbbEdit.My.Resources.Resources.Question_16x
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(101, 22)
         Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'LinksToolStripMenuItem
+        '
+        Me.LinksToolStripMenuItem.Image = Global.KbbEdit.My.Resources.Resources.LinkVertical_16x
+        Me.LinksToolStripMenuItem.Name = "LinksToolStripMenuItem"
+        Me.LinksToolStripMenuItem.Size = New System.Drawing.Size(101, 22)
+        Me.LinksToolStripMenuItem.Text = "Links"
         '
         'Button1
         '
@@ -127,13 +134,6 @@ Partial Class Form1
         Me.FolderBrowserDialog1.Description = "Select the folder where you placed your Kbb.dat file."
         Me.FolderBrowserDialog1.ShowNewFolderButton = False
         Me.FolderBrowserDialog1.UseDescriptionForTitle = True
-        '
-        'LinksToolStripMenuItem
-        '
-        Me.LinksToolStripMenuItem.Image = Global.KbbEdit.My.Resources.Resources.LinkVertical_16x
-        Me.LinksToolStripMenuItem.Name = "LinksToolStripMenuItem"
-        Me.LinksToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.LinksToolStripMenuItem.Text = "Links"
         '
         'Form1
         '

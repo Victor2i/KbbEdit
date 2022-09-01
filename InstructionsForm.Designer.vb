@@ -62,7 +62,7 @@ Partial Class InstructionsForm
         '
         'HelpLabel
         '
-        Me.HelpLabel.Font = New System.Drawing.Font("Segoe UI Variable Text Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.HelpLabel.Font = New System.Drawing.Font("Segoe UI Variable Text Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.HelpLabel.Location = New System.Drawing.Point(12, 9)
         Me.HelpLabel.Name = "HelpLabel"
         Me.HelpLabel.Size = New System.Drawing.Size(320, 131)

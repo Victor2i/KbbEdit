@@ -40,7 +40,7 @@
         For i = 0 To 8
             If i = Stage Then
                 SelectedStage = i
-                BestComboBox.Text = KbbEditor.KbbScores(i).BestComboBox
+                BestComboBox.Text = KbbEditor.KbbScores(i).BestCombo
                 ScoreBox1.Text = KbbEditor.KbbScores(i).Score1
                 ScoreBox2.Text = KbbEditor.KbbScores(i).Score2
                 ScoreBox3.Text = KbbEditor.KbbScores(i).Score3
