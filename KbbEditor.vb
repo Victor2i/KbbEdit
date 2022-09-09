@@ -57,7 +57,7 @@
         Public DayMet As SByte
         Public TimesChoosen As UInt16
         Public Age As Int16
-        Public Sex As Int16
+        Public Gender As Int16
         Public XMove As Single
         Public YMove As Single
         Public XStretch As Single
@@ -167,7 +167,7 @@
         End Sub
     End Class
 
-    Public Shared ReadOnly RIByteOrder = {
+    Public Shared ReadOnly ByteOrderLUT = {
         0, 1, 8, 9, 2, 3, 10, 11,
         16, 17, 24, 25, 18, 19, 26, 27,
         4, 5, 12, 13, 6, 7, 14, 15,
@@ -186,8 +186,8 @@
         For tY As Int16 = 0 To 15
             For tX As Int16 = 0 To 15
                 For pX As Int16 = 0 To 63
-                    Dim X = RIByteOrder(pX) Mod 8
-                    Dim Y = (RIByteOrder(pX) - X) / 8
+                    Dim X = ByteOrderLUT(pX) Mod 8
+                    Dim Y = (ByteOrderLUT(pX) - X) / 8
 
                     Dim PixelData As UInt16 = 0
                     PixelData += InData(InOff)
@@ -216,8 +216,8 @@
         For tY As Int16 = 0 To 15
             For tX As Int16 = 0 To 15
                 For pX As Int16 = 0 To 63
-                    Dim X = RIByteOrder(pX) Mod 8
-                    Dim Y = (RIByteOrder(pX) - X) / 8
+                    Dim X = ByteOrderLUT(pX) Mod 8
+                    Dim Y = (ByteOrderLUT(pX) - X) / 8
 
                     Dim InOff As UInt16 = (tX * X + ((tY + Y) * 128)) * 2
 
@@ -258,6 +258,48 @@
         Next
         Return My.Resources.NoFace
     End Function
+
+    Public Shared Function GetFaceProps(FID As UInt32)
+        For i = 0 To 48
+            If KbbFaces(i).FaceID = FID Then
+                Dim FaceProperties As KbbFaceInfo
+
+                FaceProperties.FaceID = KbbFaces(i).FaceID
+                FaceProperties.DayMet = KbbFaces(i).DayMet
+                FaceProperties.MonthMet = KbbFaces(i).MonthMet
+                FaceProperties.YearMet = KbbFaces(i).YearMet
+                FaceProperties.TimesChoosen = KbbFaces(i).TimesChoosen
+                FaceProperties.Age = KbbFaces(i).Age
+                FaceProperties.Gender = KbbFaces(i).Gender
+                FaceProperties.XMove = KbbFaces(i).XMove
+                FaceProperties.YMove = KbbFaces(i).YMove
+                FaceProperties.XStretch = KbbFaces(i).XStretch
+                FaceProperties.YStretch = KbbFaces(i).YStretch
+                FaceProperties.Rotation = KbbFaces(i).Rotation
+
+                Return FaceProperties
+            End If
+        Next
+        Return -1
+    End Function
+
+    Public Shared Sub SetFaceProps(FID As UInt32, InInfoData As KbbFaceInfo)
+        For i = 0 To 48
+            If KbbFaces(i).FaceID = FID Then
+                KbbFaces(i).DayMet = InInfoData.DayMet
+                KbbFaces(i).MonthMet = InInfoData.MonthMet
+                KbbFaces(i).YearMet = InInfoData.YearMet
+                KbbFaces(i).TimesChoosen = InInfoData.TimesChoosen
+                KbbFaces(i).Age = InInfoData.Age
+                KbbFaces(i).Gender = InInfoData.Gender
+                KbbFaces(i).XMove = InInfoData.XMove
+                KbbFaces(i).YMove = InInfoData.YMove
+                KbbFaces(i).XStretch = InInfoData.XStretch
+                KbbFaces(i).YStretch = InInfoData.YStretch
+                KbbFaces(i).Rotation = InInfoData.Rotation
+            End If
+        Next
+    End Sub
 
     Public Shared Sub LoadSave()
         KbbSaveInfo.MakeUFOAppear = BitConverter.ToBoolean(KbbSave, &H10C8)
@@ -356,7 +398,7 @@
             KbbFaces(i).DayMet = KbbSave(&H7 + (i * &H40))
             KbbFaces(i).TimesChoosen = BitConverter.ToUInt16(KbbSave, &H8 + (i * &H40))
             KbbFaces(i).Age = BitConverter.ToInt16(KbbSave, &HC + (i * &H40))
-            KbbFaces(i).Sex = BitConverter.ToInt16(KbbSave, &HE + (i * &H40))
+            KbbFaces(i).Gender = BitConverter.ToInt16(KbbSave, &HE + (i * &H40))
             KbbFaces(i).XMove = BitConverter.ToSingle(KbbSave, &H10 + (i * &H40))
             KbbFaces(i).YMove = BitConverter.ToSingle(KbbSave, &H14 + (i * &H40))
             KbbFaces(i).XStretch = BitConverter.ToSingle(KbbSave, &H18 + (i * &H40))
@@ -487,7 +529,7 @@
 
             File.ExportUInt16(KbbSave, &H8 + (i * &H40), KbbFaces(i).TimesChoosen)
             File.ExportInt16(KbbSave, &HC + (i * &H40), KbbFaces(i).Age)
-            File.ExportInt16(KbbSave, &HE + (i * &H40), KbbFaces(i).Sex)
+            File.ExportInt16(KbbSave, &HE + (i * &H40), KbbFaces(i).Gender)
             File.ExportFloat(KbbSave, &H10 + (i * &H40), KbbFaces(i).XMove)
             File.ExportFloat(KbbSave, &H14 + (i * &H40), KbbFaces(i).YMove)
             File.ExportFloat(KbbSave, &H18 + (i * &H40), KbbFaces(i).XStretch)

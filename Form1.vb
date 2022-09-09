@@ -65,7 +65,7 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        MsgBox("Sorry... Not implemented yet!" & Chr(&HA) & "Make sure to check our GitHub repo or our Discord server for updates!", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Cannot use")
+        FaceEditor.Show()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
