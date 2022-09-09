@@ -534,10 +534,10 @@ Public Class FaceEditor
             Dim ExportedFace As Image = KbbEditor.GetFaceImage(SelectedFace)
             Dim PathBytes = System.Text.Encoding.Unicode.GetBytes(SaveFileDialog1.FileName)
             Dim OutFormat As String = ""
-            Dim DotLoc As Integer = 2
+            Dim DotLoc As Integer = PathBytes.Length - 2
             While ChrW(PathBytes(DotLoc)) <> "."
-                If DotLoc <> PathBytes.Length Then
-                    DotLoc += 2
+                If DotLoc > 0 Then
+                    DotLoc -= 2
                 Else
                     Exit While
                 End If

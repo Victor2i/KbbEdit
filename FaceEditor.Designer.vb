@@ -445,6 +445,10 @@ Partial Class FaceEditor
         '
         Me.UpdateImageBuffer.Interval = 1
         '
+        'SaveFileDialog1
+        '
+        Me.SaveFileDialog1.Filter = "Bitmap image|*.bmp|JPEG image|*.jpg;*.jpeg|PNG image|*.png"
+        '
         'DeleteFaceButton
         '
         Me.DeleteFaceButton.Enabled = False

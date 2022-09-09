@@ -12,8 +12,8 @@
     <ApplicationIcon>Images\titlelogo_face.1.ico</ApplicationIcon>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <AssemblyVersion>0.5.0.0</AssemblyVersion>
-    <Version>0.5.0.0</Version>
+    <AssemblyVersion>0.6.1.0</AssemblyVersion>
+    <Version>0.6.1.0</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
