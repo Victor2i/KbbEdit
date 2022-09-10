@@ -6,8 +6,10 @@
     Public Shared FacesOrder(48) As UInt32
     Public Shared KbbScores(9) As Score
     Public Shared KbbImportedFaces(9) As KbbImportedFaceInfo
-    Public Shared FaceRawImages() As KbbFace
-    Public Shared FaceImages() As Bitmap
+    Public Shared UFOFaceRawImages(9) As KbbFace
+    Public Shared FaceRawImages(48) As KbbFace
+    Public Shared UFOFaceImages(9) As Bitmap
+    Public Shared FaceImages(48) As Bitmap
 
     Public Class KbbSaveInfo
         Public Shared MakeUFOAppear As Boolean
@@ -259,6 +261,27 @@
         Return My.Resources.NoFace
     End Function
 
+    Public Shared Function SetFaceImage(FID As UInt32, NewImage As Bitmap)
+        If FID = &HFFFFFFFFUI Then
+            Return My.Resources.NoFace
+        End If
+        For i = 0 To 48
+            If KbbFaces(i).FaceID = FID Then
+                If KbbFaces(i).FRIindex <> -1 Then
+                    FaceImages(KbbFaces(i).FRIindex) = NewImage
+                End If
+            End If
+        Next
+        If FID = &HFFFFFFFEUI Then
+            Return My.Resources.UnknownFace
+        ElseIf FID = &HFFFFFFFDUI Then
+            Return My.Resources.UnknownFace2
+        ElseIf FID = &HFFFFFFFCUI Then
+            Return My.Resources.DummyFace
+        End If
+        Return NewImage
+    End Function
+
     Public Shared Function GetFaceProps(FID As UInt32)
         For i = 0 To 48
             If KbbFaces(i).FaceID = FID Then
@@ -297,6 +320,41 @@
                 KbbFaces(i).XStretch = InInfoData.XStretch
                 KbbFaces(i).YStretch = InInfoData.YStretch
                 KbbFaces(i).Rotation = InInfoData.Rotation
+            End If
+        Next
+    End Sub
+
+    Public Shared Sub DeleteFace(FID As UInt32)
+        If FID = &HFFFFFFFFUI Then
+            MsgBox("Face is null", vbCritical + vbOK, "Error while deleting face")
+        End If
+        For i = 0 To 48
+            If KbbFaces(i).FaceID = FID Then
+                If KbbFaces(i).FRIindex <> -1 Then
+                    KbbFaces(i).FRIindex = -1
+                    KbbFaces(i).FaceID = &HFFFFFFFFUI
+                    KbbFaces(i).YearMet = 0
+                    KbbFaces(i).MonthMet = 0
+                    KbbFaces(i).DayMet = 0
+                    KbbFaces(i).TimesChoosen = 0
+                    KbbFaces(i).Age = -1
+                    KbbFaces(i).Gender = -1
+                    KbbFaces(i).XMove = 0
+                    KbbFaces(i).YMove = 0
+                    KbbFaces(i).XStretch = 1
+                    KbbFaces(i).YStretch = 1
+                    KbbFaces(i).Rotation = 0
+                    Dim FacesReOrder(48) As UInt32
+                    Dim Offset = 0
+                    For j = 0 To FacesOrder.Length - 2
+                        If FacesOrder(j) = FID Then
+                            Offset += 1
+                        Else
+                            FacesReOrder(j - Offset) = FacesOrder(j)
+                        End If
+                    Next
+                    FacesOrder = FacesReOrder
+                End If
             End If
         Next
     End Sub
@@ -341,8 +399,6 @@
         KbbSaveInfo.FaceCollectionNewFaceSeen = BitConverter.ToBoolean(KbbSave, &H1146)
         KbbSaveInfo.SneakySnapsUsable = BitConverter.ToBoolean(KbbSave, &H1147)
 
-        ReDim FaceRawImages(My.Computer.FileSystem.GetFiles(Form1.FolderBrowserDialog1.SelectedPath).Count - 2)
-        ReDim FaceImages(My.Computer.FileSystem.GetFiles(Form1.FolderBrowserDialog1.SelectedPath).Count - 2)
         Dim FRIindex = 0 ' Index used to locate faster the image/raw image of a face.
 
         For i = 0 To 9 ' Load UFO faces
@@ -363,15 +419,16 @@
                 FaceRawImages(FRIindex) = NIFace
 
                 KbbImportedFaces(i).FRIindex = FRIindex
-
-                FRIindex += 1
             End If
 
             KbbImportedFaces(i).CaptureDate = BitConverter.ToInt64(KbbSave, &HE08 + (i * &H28))
             KbbImportedFaces(i).ShowFace = BitConverter.ToBoolean(KbbSave, &HE14 + (i * &H28))
             KbbImportedFaces(i).NewFace = BitConverter.ToBoolean(KbbSave, &HE1C + (i * &H28))
+
+            FRIindex += 1
         Next
-        For i = 0 To 48 ' Load saved faces properties
+        FRIindex = 0
+        For i = 0 To 48 ' Load saved faces
             KbbFaces(i).FaceID = BitConverter.ToUInt32(KbbSave, &H0 + (i * &H40))
 
             KbbFaces(i).FRIindex = -1
@@ -389,8 +446,6 @@
                 FaceRawImages(FRIindex) = NFace
 
                 KbbFaces(i).FRIindex = FRIindex
-
-                FRIindex += 1
             End If
 
             KbbFaces(i).YearMet = BitConverter.ToInt16(KbbSave, &H4 + (i * &H40))
@@ -404,6 +459,8 @@
             KbbFaces(i).XStretch = BitConverter.ToSingle(KbbSave, &H18 + (i * &H40))
             KbbFaces(i).YStretch = BitConverter.ToSingle(KbbSave, &H1C + (i * &H40))
             KbbFaces(i).Rotation = BitConverter.ToSingle(KbbSave, &H20 + (i * &H40))
+
+            FRIindex += 1
         Next
         For j = 0 To 48 ' Reorder the faces in an array
             Dim SmallestID As UInt32 = &HFFFFFFFFUI
@@ -438,7 +495,7 @@
         Next
         For i = 0 To 9 ' Decode UFO faces
             If KbbImportedFaces(i).FRIindex <> -1 Then
-                FaceImages(KbbImportedFaces(i).FRIindex) = DecodeRawFaceData(FaceRawImages(KbbImportedFaces(i).FRIindex).TextureData)
+                UFOFaceImages(KbbImportedFaces(i).FRIindex) = DecodeRawFaceData(FaceRawImages(KbbImportedFaces(i).FRIindex).TextureData)
             End If
         Next
         For i = 0 To 48 ' Decode saved faces

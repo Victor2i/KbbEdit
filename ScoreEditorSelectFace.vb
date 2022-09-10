@@ -57,6 +57,7 @@
         If FacePage = 0 Then
             LeftPageButton.Enabled = False
             FaceBox1.BackgroundImage = Nothing
+            FaceBox1.Enabled = False
         Else
             FaceBox1.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(-1 + 10 * FacePage)) ' -1... Kinda feels weird to see this in an index.
         End If
@@ -116,6 +117,7 @@
         FacePage += 1
         If FacePage = 1 Then
             LeftPageButton.Enabled = True
+            FaceBox1.Enabled = True
         End If
         If FacePage = 4 Then
             RightPageButton.Enabled = False

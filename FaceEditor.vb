@@ -4,10 +4,11 @@ Imports System.ComponentModel
 
 Public Class FaceEditor
     Dim FacePage As Integer
-    Dim SelectedFace As UInteger
+    Dim SelectedFace As UInteger = &HFFFFFFFFUI
     Dim SelectedFaceProps As KbbEditor.KbbFaceInfo
+    Public FaceToEdit As New Bitmap(128, 128)
 
-    Dim BackBuffer As New Bitmap(128, 128)
+    Dim BackBuffer As New Bitmap(128, 128) ' For later use
 
     Private Sub FaceEditor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FacePage = 0
@@ -64,6 +65,7 @@ Public Class FaceEditor
         If FacePage = 0 Then
             LeftPageButton.Enabled = False
             FaceBox1.BackgroundImage = Nothing
+            FaceBox1.Enabled = False
         Else
             FaceBox1.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(-1 + 10 * FacePage)) ' -1... Kinda feels weird to see this in an index.
         End If
@@ -123,6 +125,7 @@ Public Class FaceEditor
         FacePage += 1
         If FacePage = 1 Then
             LeftPageButton.Enabled = True
+            FaceBox1.Enabled = True
         End If
         If FacePage = 4 Then
             RightPageButton.Enabled = False
@@ -522,11 +525,15 @@ Public Class FaceEditor
     End Sub
 
     Private Sub FaceEditor_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        KbbEditor.SetFaceProps(SelectedFace, SelectedFaceProps)
+        If SelectedFace <> &HFFFFFFFFUI Then
+            KbbEditor.SetFaceProps(SelectedFace, SelectedFaceProps)
+        End If
     End Sub
 
     Private Sub ImportFaceButton_Click(sender As Object, e As EventArgs) Handles ImportFaceButton.Click
-        MsgBox("Sorry... Not implemented yet!" & Chr(&HA) & "Make sure to check our GitHub repo or our Discord server for updates!", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Cannot use")
+        GrayEverything()
+        FaceToEdit = KbbEditor.GetFaceImage(SelectedFace)
+        ImportFaceForm.Show()
     End Sub
 
     Private Sub ExportFaceButton_Click(sender As Object, e As EventArgs) Handles ExportFaceButton.Click
@@ -565,7 +572,166 @@ Public Class FaceEditor
     End Sub
 
     Private Sub DeleteFaceButton_Click(sender As Object, e As EventArgs) Handles DeleteFaceButton.Click
-        MsgBox("Sorry... Not implemented yet!" & Chr(&HA) & "Make sure to check our GitHub repo or our Discord server for updates!", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Cannot use")
+        Dim Response = MsgBox("Are you sure to delete this face?", vbExclamation + vbYesNo, "Delete face")
+        If Response = vbYes Then
+            KbbEditor.DeleteFace(SelectedFace)
+            If FacePage > 0 Then
+                If KbbEditor.FacesOrder(9 + 10 * FacePage) = &HFFFFFFFFUI Then
+                    RightPageButton.Enabled = False
+                End If
+                If KbbEditor.FacesOrder(-1 + 10 * FacePage) = &HFFFFFFFFUI Then
+                    RightPageButton.Enabled = False
+                    FacePage -= 1
+                End If
+            End If
+            If FacePage = 0 Then
+                LeftPageButton.Enabled = False
+                FaceBox1.BackgroundImage = Nothing
+                FaceBox1.Enabled = False
+            Else
+                FaceBox1.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(-1 + 10 * FacePage))
+                FaceBox1.Enabled = True
+            End If
+            FaceBox2.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(0 + 10 * FacePage))
+            FaceBox2.Enabled = True
+            If KbbEditor.FacesOrder(0 + 10 * FacePage) = &HFFFFFFFFUI Then
+                FaceBox2.Enabled = False
+            End If
+            FaceBox3.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(1 + 10 * FacePage))
+            FaceBox3.Enabled = True
+            If KbbEditor.FacesOrder(1 + 10 * FacePage) = &HFFFFFFFFUI Then
+                FaceBox3.Enabled = False
+            End If
+            FaceBox4.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(2 + 10 * FacePage))
+            FaceBox4.Enabled = True
+            If KbbEditor.FacesOrder(2 + 10 * FacePage) = &HFFFFFFFFUI Then
+                FaceBox4.Enabled = False
+            End If
+            FaceBox5.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(3 + 10 * FacePage))
+            FaceBox5.Enabled = True
+            If KbbEditor.FacesOrder(3 + 10 * FacePage) = &HFFFFFFFFUI Then
+                FaceBox5.Enabled = False
+            End If
+            FaceBox6.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(4 + 10 * FacePage))
+            FaceBox6.Enabled = True
+            If KbbEditor.FacesOrder(4 + 10 * FacePage) = &HFFFFFFFFUI Then
+                FaceBox6.Enabled = False
+            End If
+            FaceBox7.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(5 + 10 * FacePage))
+            FaceBox7.Enabled = True
+            If KbbEditor.FacesOrder(5 + 10 * FacePage) = &HFFFFFFFFUI Then
+                FaceBox7.Enabled = False
+            End If
+            FaceBox8.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(6 + 10 * FacePage))
+            FaceBox8.Enabled = True
+            If KbbEditor.FacesOrder(6 + 10 * FacePage) = &HFFFFFFFFUI Then
+                FaceBox8.Enabled = False
+            End If
+            FaceBox9.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(7 + 10 * FacePage))
+            FaceBox9.Enabled = True
+            If KbbEditor.FacesOrder(7 + 10 * FacePage) = &HFFFFFFFFUI Then
+                FaceBox9.Enabled = False
+            End If
+            FaceBox10.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(8 + 10 * FacePage))
+            FaceBox10.Enabled = True
+            If KbbEditor.FacesOrder(8 + 10 * FacePage) = &HFFFFFFFFUI Then
+                FaceBox10.Enabled = False
+            End If
+        End If
+    End Sub
+
+    Sub GrayEverything()
+        LeftPageButton.Enabled = False
+        RightPageButton.Enabled = False
+        FaceBox1.Enabled = False
+        FaceBox2.Enabled = False
+        FaceBox3.Enabled = False
+        FaceBox4.Enabled = False
+        FaceBox5.Enabled = False
+        FaceBox6.Enabled = False
+        FaceBox7.Enabled = False
+        FaceBox8.Enabled = False
+        FaceBox9.Enabled = False
+        FaceBox10.Enabled = False
+        SelectedFaceBox.Enabled = False
+        DayBox.Enabled = False
+        MonthBox.Enabled = False
+        YearBox.Enabled = False
+        TimesChoosenBox.Enabled = False
+        AgeBox.Enabled = False
+        GenderBox.Enabled = False
+        HorizontalScrollBox.Enabled = False
+        VerticalScrollBox.Enabled = False
+        HorizontalStretchBox.Enabled = False
+        VerticalStretchBox.Enabled = False
+        RotationBox.Enabled = False
+        ImportFaceButton.Enabled = False
+        ExportFaceButton.Enabled = False
+        DeleteFaceButton.Enabled = False
+    End Sub
+
+    Public Sub FreeEverything()
+        ' Check the current page to prevent an invalid range exception
+        If FacePage = 0 Then
+            LeftPageButton.Enabled = False
+            If KbbEditor.FacesOrder(9 + 10 * FacePage) = &HFFFFFFFFUI Then
+                RightPageButton.Enabled = False
+            Else
+                RightPageButton.Enabled = True
+            End If
+        ElseIf FacePage = 4 Then
+            LeftPageButton.Enabled = True
+            RightPageButton.Enabled = False
+        Else
+            LeftPageButton.Enabled = True
+            If KbbEditor.FacesOrder(9 + 10 * FacePage) = &HFFFFFFFFUI Then
+                RightPageButton.Enabled = False
+            Else
+                RightPageButton.Enabled = True
+            End If
+        End If
+        FaceBox1.Enabled = True
+        FaceBox2.Enabled = True
+        FaceBox3.Enabled = True
+        FaceBox4.Enabled = True
+        FaceBox5.Enabled = True
+        FaceBox6.Enabled = True
+        FaceBox7.Enabled = True
+        FaceBox8.Enabled = True
+        FaceBox9.Enabled = True
+        FaceBox10.Enabled = True
+        SelectedFaceBox.Enabled = True
+        DayBox.Enabled = True
+        MonthBox.Enabled = True
+        YearBox.Enabled = True
+        TimesChoosenBox.Enabled = True
+        AgeBox.Enabled = True
+        GenderBox.Enabled = True
+        HorizontalScrollBox.Enabled = True
+        VerticalScrollBox.Enabled = True
+        HorizontalStretchBox.Enabled = True
+        VerticalStretchBox.Enabled = True
+        RotationBox.Enabled = True
+        ImportFaceButton.Enabled = True
+        ExportFaceButton.Enabled = True
+        DeleteFaceButton.Enabled = True
+    End Sub
+
+    Public Sub ChangeFaceImage()
+        KbbEditor.SetFaceImage(SelectedFace, FaceToEdit)
+        SelectedFaceBox.BackgroundImage = FaceToEdit
+        If FacePage <> 0 Then
+            FaceBox1.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(-1 + 10 * FacePage))
+        End If
+        FaceBox2.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(0 + 10 * FacePage))
+        FaceBox3.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(1 + 10 * FacePage))
+        FaceBox4.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(2 + 10 * FacePage))
+        FaceBox5.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(3 + 10 * FacePage))
+        FaceBox6.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(4 + 10 * FacePage))
+        FaceBox7.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(5 + 10 * FacePage))
+        FaceBox8.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(6 + 10 * FacePage))
+        FaceBox9.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(7 + 10 * FacePage))
+        FaceBox10.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(8 + 10 * FacePage))
     End Sub
 
     ' The following code will be used to render the faces with their transform
@@ -574,9 +740,14 @@ Public Class FaceEditor
     '    Dim g As Graphics
     '    g = Graphics.FromImage(BackBuffer)
     '    g.Clear(Color.Black)
+    '    
+    '    Dim ImgOffX As Single = 64 - SelectedImage.Width / 2
+    '    Dim ImgOffY As Single = 64 - SelectedImage.Height / 2
+    '    g.DrawImage(My.Resources.DummyFace, New Point(ImgOffX, ImgOffY))
     '
-    '    g.DrawImage(My.Resources.DummyFace, New Point(0, 0))
+    '    ' End draw
     '
     '    SelectedFaceBox.BackgroundImage = BackBuffer
+    '    SelectedFaceBox.Invalidate()
     'End Sub
 End Class
