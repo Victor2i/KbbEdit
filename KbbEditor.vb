@@ -215,17 +215,17 @@
 
         Dim OutOff As UInt16 = 0
 
+        InImage = FixFacePixelData(InImage)
+
         For tY As Int16 = 0 To 15
             For tX As Int16 = 0 To 15
                 For pX As Int16 = 0 To 63
                     Dim X = ByteOrderLUT(pX) Mod 8
                     Dim Y = (ByteOrderLUT(pX) - X) / 8
 
-                    Dim InOff As UInt16 = (tX * X + ((tY + Y) * 128)) * 2
-
                     Dim PixelData As UInt16 = 0
 
-                    PixelData += InImage.GetPixel(tX * 8 + X, tY * 8 + Y).B / 8
+                    PixelData += Math.Floor(InImage.GetPixel(tX * 8 + X, tY * 8 + Y).B / 8)
                     PixelData += InImage.GetPixel(tX * 8 + X, tY * 8 + Y).G * 8
                     PixelData += InImage.GetPixel(tX * 8 + X, tY * 8 + Y).R * 256
 
@@ -238,6 +238,32 @@
         Next
 
         Return Output
+    End Function
+
+    Public Shared Function FixFacePixelData(InImage As Bitmap) ' Only works for faces you imported from your computer
+        For Y As Int16 = 0 To 127
+            For X As Int16 = 0 To 127
+                Dim R = InImage.GetPixel(X, Y).R
+                Dim G = InImage.GetPixel(X, Y).G
+                Dim B = InImage.GetPixel(X, Y).B
+
+                If InImage.GetPixel(X, Y).R Mod 8 > 0 Then
+                    R -= R Mod 8
+                    InImage.SetPixel(X, Y, Color.FromArgb(255, R, G, B))
+                End If
+
+                If InImage.GetPixel(X, Y).G Mod 4 > 0 Then
+                    G -= G Mod 4
+                    InImage.SetPixel(X, Y, Color.FromArgb(255, R, G, B))
+                End If
+
+                If InImage.GetPixel(X, Y).B Mod 8 > 0 Then
+                    B -= B Mod 8
+                    InImage.SetPixel(X, Y, Color.FromArgb(255, R, G, B))
+                End If
+            Next
+        Next
+        Return InImage
     End Function
 
     Public Shared Function GetFaceImage(FID As UInt32)
@@ -416,7 +442,7 @@
                 Array.ConstrainedCopy(Buffer, 4, NIFace.TextureData, 0, &H8000)
                 NIFace.CRC32 = BitConverter.ToUInt32(Buffer, &H8004)
 
-                FaceRawImages(FRIindex) = NIFace
+                UFOFaceRawImages(FRIindex) = NIFace
 
                 KbbImportedFaces(i).FRIindex = FRIindex
             End If
@@ -495,7 +521,7 @@
         Next
         For i = 0 To 9 ' Decode UFO faces
             If KbbImportedFaces(i).FRIindex <> -1 Then
-                UFOFaceImages(KbbImportedFaces(i).FRIindex) = DecodeRawFaceData(FaceRawImages(KbbImportedFaces(i).FRIindex).TextureData)
+                UFOFaceImages(KbbImportedFaces(i).FRIindex) = DecodeRawFaceData(UFOFaceRawImages(KbbImportedFaces(i).FRIindex).TextureData)
             End If
         Next
         For i = 0 To 48 ' Decode saved faces
@@ -552,7 +578,7 @@
                 Dim OutData As Byte()
                 ReDim OutData(&H8007)
 
-                Array.ConstrainedCopy(KbbEditor.EncodeRawFaceData(KbbEditor.FaceImages(KbbImportedFaces(i).FRIindex)), 0, OutData, 4, &H8000)
+                Array.ConstrainedCopy(KbbEditor.EncodeRawFaceData(KbbEditor.UFOFaceImages(KbbImportedFaces(i).FRIindex)), 0, OutData, 4, &H8000)
                 Dim OutDataCRC = KbbEditor.Crc32.ComputeCRC32(OutData, 0, &H8003)
 
                 File.ExportUInt32(OutData, &H8004, OutDataCRC)
