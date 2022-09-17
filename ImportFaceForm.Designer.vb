@@ -141,6 +141,7 @@ Partial Class ImportFaceForm
         '
         'FinishButton
         '
+        Me.FinishButton.Enabled = False
         Me.FinishButton.Location = New System.Drawing.Point(195, 437)
         Me.FinishButton.Name = "FinishButton"
         Me.FinishButton.Size = New System.Drawing.Size(75, 23)

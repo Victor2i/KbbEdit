@@ -76,6 +76,7 @@ Public Class ImportFaceForm
                 Case "BMP", "JPG", "JPEG", "PNG"
                     SelectedImage = Image.FromFile(OpenFileDialog1.FileName)
                     Timer1.Enabled = True
+                    FinishButton.Enabled = True
                     ImageMatrix.Reset()
                 Case Else
                     MsgBox("Sorry... This file format is not supported!", MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Error while saving face as image")

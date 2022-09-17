@@ -59,11 +59,14 @@ Partial Class FaceEditor
         Me.VerticalStretchBox = New System.Windows.Forms.NumericUpDown()
         Me.HorizontalStretchBox = New System.Windows.Forms.NumericUpDown()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.UpdateImageBuffer = New System.Windows.Forms.Timer(Me.components)
+        Me.UpdateImageBufferTimer = New System.Windows.Forms.Timer(Me.components)
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.DeleteFaceButton = New System.Windows.Forms.Button()
         Me.ExportFaceButton = New System.Windows.Forms.Button()
         Me.ImportFaceButton = New System.Windows.Forms.Button()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.NewFaceButton = New System.Windows.Forms.Button()
+        Me.SwapFacesButton = New System.Windows.Forms.Button()
         CType(Me.FaceBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FaceBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FaceBox8, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -423,7 +426,7 @@ Partial Class FaceEditor
         '
         Me.HorizontalStretchBox.DecimalPlaces = 3
         Me.HorizontalStretchBox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.HorizontalStretchBox.Increment = New Decimal(New Integer() {1, 0, 0, 196608})
+        Me.HorizontalStretchBox.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.HorizontalStretchBox.Location = New System.Drawing.Point(422, 298)
         Me.HorizontalStretchBox.Maximum = New Decimal(New Integer() {2, 0, 0, 0})
         Me.HorizontalStretchBox.Minimum = New Decimal(New Integer() {25, 0, 0, 131072})
@@ -441,9 +444,9 @@ Partial Class FaceEditor
         Me.Label11.TabIndex = 47
         Me.Label11.Text = "Rotation (in radians)"
         '
-        'UpdateImageBuffer
+        'UpdateImageBufferTimer
         '
-        Me.UpdateImageBuffer.Interval = 1
+        Me.UpdateImageBufferTimer.Enabled = True
         '
         'SaveFileDialog1
         '
@@ -454,9 +457,9 @@ Partial Class FaceEditor
         Me.DeleteFaceButton.Enabled = False
         Me.DeleteFaceButton.Font = New System.Drawing.Font("Segoe UI Variable Text Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.DeleteFaceButton.ForeColor = System.Drawing.Color.Red
-        Me.DeleteFaceButton.Location = New System.Drawing.Point(602, 385)
+        Me.DeleteFaceButton.Location = New System.Drawing.Point(662, 410)
         Me.DeleteFaceButton.Name = "DeleteFaceButton"
-        Me.DeleteFaceButton.Size = New System.Drawing.Size(214, 42)
+        Me.DeleteFaceButton.Size = New System.Drawing.Size(154, 42)
         Me.DeleteFaceButton.TabIndex = 48
         Me.DeleteFaceButton.Text = "Delete face"
         Me.DeleteFaceButton.UseVisualStyleBackColor = True
@@ -465,9 +468,9 @@ Partial Class FaceEditor
         '
         Me.ExportFaceButton.Enabled = False
         Me.ExportFaceButton.Font = New System.Drawing.Font("Segoe UI Variable Text Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.ExportFaceButton.Location = New System.Drawing.Point(602, 328)
+        Me.ExportFaceButton.Location = New System.Drawing.Point(662, 280)
         Me.ExportFaceButton.Name = "ExportFaceButton"
-        Me.ExportFaceButton.Size = New System.Drawing.Size(214, 42)
+        Me.ExportFaceButton.Size = New System.Drawing.Size(154, 42)
         Me.ExportFaceButton.TabIndex = 49
         Me.ExportFaceButton.Text = "Export face"
         Me.ExportFaceButton.UseVisualStyleBackColor = True
@@ -476,18 +479,52 @@ Partial Class FaceEditor
         '
         Me.ImportFaceButton.Enabled = False
         Me.ImportFaceButton.Font = New System.Drawing.Font("Segoe UI Variable Text Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.ImportFaceButton.Location = New System.Drawing.Point(602, 280)
+        Me.ImportFaceButton.Location = New System.Drawing.Point(501, 280)
         Me.ImportFaceButton.Name = "ImportFaceButton"
-        Me.ImportFaceButton.Size = New System.Drawing.Size(214, 42)
+        Me.ImportFaceButton.Size = New System.Drawing.Size(155, 42)
         Me.ImportFaceButton.TabIndex = 50
         Me.ImportFaceButton.Text = "Import face"
         Me.ImportFaceButton.UseVisualStyleBackColor = True
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(12, 433)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(161, 19)
+        Me.CheckBox1.TabIndex = 51
+        Me.CheckBox1.Text = "Show face calibrate guide"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'NewFaceButton
+        '
+        Me.NewFaceButton.Font = New System.Drawing.Font("Segoe UI Variable Text Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.NewFaceButton.Location = New System.Drawing.Point(501, 328)
+        Me.NewFaceButton.Name = "NewFaceButton"
+        Me.NewFaceButton.Size = New System.Drawing.Size(155, 42)
+        Me.NewFaceButton.TabIndex = 52
+        Me.NewFaceButton.Text = "New face"
+        Me.NewFaceButton.UseVisualStyleBackColor = True
+        '
+        'SwapFacesButton
+        '
+        Me.SwapFacesButton.Enabled = False
+        Me.SwapFacesButton.Font = New System.Drawing.Font("Segoe UI Variable Text Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.SwapFacesButton.Location = New System.Drawing.Point(662, 328)
+        Me.SwapFacesButton.Name = "SwapFacesButton"
+        Me.SwapFacesButton.Size = New System.Drawing.Size(154, 42)
+        Me.SwapFacesButton.TabIndex = 53
+        Me.SwapFacesButton.Text = "Swap faces"
+        Me.SwapFacesButton.UseVisualStyleBackColor = True
         '
         'FaceEditor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(828, 439)
+        Me.ClientSize = New System.Drawing.Size(828, 464)
+        Me.Controls.Add(Me.SwapFacesButton)
+        Me.Controls.Add(Me.NewFaceButton)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.ImportFaceButton)
         Me.Controls.Add(Me.ExportFaceButton)
         Me.Controls.Add(Me.DeleteFaceButton)
@@ -590,9 +627,12 @@ Partial Class FaceEditor
     Friend WithEvents VerticalStretchBox As NumericUpDown
     Friend WithEvents HorizontalStretchBox As NumericUpDown
     Friend WithEvents Label11 As Label
-    Friend WithEvents UpdateImageBuffer As Timer
+    Friend WithEvents UpdateImageBufferTimer As Timer
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents DeleteFaceButton As Button
     Friend WithEvents ExportFaceButton As Button
     Friend WithEvents ImportFaceButton As Button
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents NewFaceButton As Button
+    Friend WithEvents SwapFacesButton As Button
 End Class

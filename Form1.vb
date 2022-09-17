@@ -25,14 +25,15 @@
                     End If
                 End If
                 KbbEditor.LoadSave()
+
+                If KbbEditor.KbbSave.Length = 5520 Then
+                    Button1.Enabled = True
+                    Button2.Enabled = True
+                    Button3.Enabled = True
+                End If
             Else
                 MsgBox("Your file is invalid! Make sure you selected the correct one.", vbOKOnly + vbCritical, "Error while importing save file")
             End If
-        End If
-        If KbbEditor.KbbSave.Length = 5520 Then
-            Button1.Enabled = True
-            Button2.Enabled = True
-            Button3.Enabled = True
         End If
     End Sub
 

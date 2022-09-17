@@ -106,11 +106,6 @@
         If KbbEditor.FacesOrder(8 + 10 * FacePage) = &HFFFFFFFFUI Then
             FaceBox10.Enabled = False
         End If
-        If KbbEditor.FacesOrder(9 + 10 * FacePage) = &HFFFFFFFFUI Then
-            RightPageButton.Enabled = False
-        Else
-            RightPageButton.Enabled = True
-        End If
     End Sub
 
     Private Sub RightPageButton_Click(sender As Object, e As EventArgs) Handles RightPageButton.Click
@@ -163,10 +158,14 @@
         If KbbEditor.FacesOrder(8 + 10 * FacePage) = &HFFFFFFFFUI Then
             FaceBox10.Enabled = False
         End If
-        If KbbEditor.FacesOrder(9 + 10 * FacePage) = &HFFFFFFFFUI Then
-            RightPageButton.Enabled = False
+        If FacePage < 4 Then
+            If KbbEditor.FacesOrder(9 + 10 * FacePage) = &HFFFFFFFFUI Then
+                RightPageButton.Enabled = False
+            Else
+                RightPageButton.Enabled = True
+            End If
         Else
-            RightPageButton.Enabled = True
+            RightPageButton.Enabled = False
         End If
     End Sub
 
