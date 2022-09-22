@@ -1,6 +1,6 @@
 ﻿Imports System.Drawing.Drawing2D
 
-Public Class ImportFaceForm
+Public Class NewUFOFace
     Dim BackBuffer As New Bitmap(128, 128)
     Public IsUFO As Boolean = False
     Dim SelectedImage As Image
@@ -103,26 +103,10 @@ Public Class ImportFaceForm
 
     Private Sub FinishButton_Click(sender As Object, e As EventArgs) Handles FinishButton.Click
         Timer1.Enabled = False
-        If IsUFO = False Then
-            FaceEditor.FaceToEdit = BackBuffer
-            FaceEditor.FreeEverything()
-            FaceEditor.ChangeFaceImage()
-        Else
-            UFOEditor.FaceToEdit = BackBuffer
-            UFOEditor.FreeEverything()
-            UFOEditor.ChangeFaceImage()
-        End If
-        Close()
-    End Sub
 
-    Private Sub AbortButton_Click(sender As Object, e As EventArgs) Handles AbortButton.Click
-        If IsUFO = False Then
-            FaceEditor.FreeEverything()
-            UFOEditor.ImportFaceButton.Enabled = True
-        Else
-            UFOEditor.FreeEverything()
-            FaceEditor.ImportFaceButton.Enabled = True
-        End If
+        KbbEditor.NewUFOFace(BackBuffer)
+
+        UFOEditor.ReloadFaces()
         Close()
     End Sub
 End Class

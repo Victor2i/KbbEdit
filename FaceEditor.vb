@@ -137,7 +137,7 @@ Public Class FaceEditor
             If KbbEditor.UFOFacesOrder(0) <> &HFFFFFFFFUI Then
                 FaceBox1.BackgroundImage = UFOThumb
             End If
-            FaceBox1.Enabled = False
+            FaceBox1.Enabled = True
         Else
             FaceBox1.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(-1 + 10 * FacePage)) ' -1... Kinda feels weird to see this in an index.
         End If
@@ -268,7 +268,7 @@ Public Class FaceEditor
                 SelectedFace = KbbEditor.FacesOrder(-1 + 10 * FacePage)
                 LoadSelectedFaceProps()
             Else
-                ' do the ufo
+                ' UFOEditor.Show()
             End If
         Else
             If FacePage > 0 Then
@@ -485,6 +485,8 @@ Public Class FaceEditor
     Private Sub ImportFaceButton_Click(sender As Object, e As EventArgs) Handles ImportFaceButton.Click
         GrayEverything()
         FaceToEdit = KbbEditor.GetFaceImage(SelectedFace)
+        UFOEditor.ImportFaceButton.Enabled = False
+        ImportFaceForm.IsUFO = False
         ImportFaceForm.Show()
     End Sub
 
@@ -597,8 +599,8 @@ Public Class FaceEditor
             End If
             If FacePage = 0 Then
                 LeftPageButton.Enabled = False
-                FaceBox1.BackgroundImage = Nothing
-                FaceBox1.Enabled = False
+                FaceBox1.BackgroundImage = UFOThumb
+                FaceBox1.Enabled = True
             Else
                 FaceBox1.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(-1 + 10 * FacePage))
                 FaceBox1.Enabled = True
@@ -678,6 +680,8 @@ Public Class FaceEditor
         RotationBox.Enabled = False
         ImportFaceButton.Enabled = False
         ExportFaceButton.Enabled = False
+        NewFaceButton.Enabled = False
+        SwapFacesButton.Enabled = False
         DeleteFaceButton.Enabled = False
     End Sub
 
@@ -725,6 +729,8 @@ Public Class FaceEditor
         RotationBox.Enabled = True
         ImportFaceButton.Enabled = True
         ExportFaceButton.Enabled = True
+        NewFaceButton.Enabled = True
+        SwapFacesButton.Enabled = True
         DeleteFaceButton.Enabled = True
     End Sub
 
@@ -794,6 +800,27 @@ Public Class FaceEditor
         FaceBox8.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(6 + 10 * FacePage))
         FaceBox9.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(7 + 10 * FacePage))
         FaceBox10.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(8 + 10 * FacePage))
+    End Sub
+
+    Public Sub ReDrawUFOThumb()
+        If KbbEditor.UFOFacesOrder(0) = &HFFFFFFFFUI Then
+            FaceBox1.Image = Nothing
+            FaceBox1.BackgroundImage = Nothing
+        Else
+            Dim g As Graphics
+            g = Graphics.FromImage(UFOThumb)
+            g.Clear(Color.Black)
+
+            g.ScaleTransform(0.59375, 0.59375)
+            g.DrawImage(KbbEditor.UFOFaceImages(KbbEditor.UFOFacesOrder(0)), 38, 69)
+
+            g.ResetTransform()
+            g.DrawImage(My.Resources.FaceUFO, 0, 0)
+
+            FaceBox1.Image = Nothing
+            FaceBox1.BackgroundImage = UFOThumb
+            FaceBox1.Invalidate()
+        End If
     End Sub
 
     Private Sub UpdateImageBuffer(sender As Object, e As EventArgs) Handles UpdateImageBufferTimer.Tick

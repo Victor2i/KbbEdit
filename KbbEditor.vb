@@ -100,7 +100,6 @@ Public Class KbbEditor
     Public Structure KbbImportedFaceInfo
         Public FaceID As UInt32
         Public CaptureDate As Int64
-        Public ShowFace As Boolean
         Public NewFace As Boolean
         Public FRIindex As Int16 ' Used by editor
     End Structure
@@ -292,6 +291,15 @@ Public Class KbbEditor
             Return My.Resources.DummyFace
         End If
         ' These IDs above are special for the game, they display the faces differently.
+        If FID < 10 Then
+            For i = 0 To 9
+                If KbbImportedFaces(i).FaceID = FID Then
+                    If KbbImportedFaces(i).FRIindex <> -1 Then
+                        Return UFOFaceImages(KbbImportedFaces(i).FRIindex)
+                    End If
+                End If
+            Next
+        End If
         For i = 0 To 48
             If KbbFaces(i).FaceID = FID Then
                 If KbbFaces(i).FRIindex <> -1 Then
@@ -305,6 +313,16 @@ Public Class KbbEditor
     Public Shared Function SetFaceImage(FID As UInt32, NewImage As Bitmap)
         If FID = &HFFFFFFFFUI Then
             Return My.Resources.NoFace
+        End If
+        If FID < 10 Then
+            For i = 0 To 9
+                If KbbImportedFaces(i).FaceID = FID Then
+                    If KbbFaces(i).FRIindex <> -1 Then
+                        UFOFaceImages(KbbImportedFaces(i).FRIindex) = NewImage
+                    End If
+                    Exit For
+                End If
+            Next
         End If
         For i = 0 To 48
             If KbbFaces(i).FaceID = FID Then
@@ -367,6 +385,27 @@ Public Class KbbEditor
         Next
     End Sub
 
+    Public Shared Function GetUFOFaceProps(FID As UInt32)
+        For i = 0 To 9
+            If KbbImportedFaces(i).FaceID = FID Then
+                Dim FaceProperties As KbbImportedFaceInfo
+
+                FaceProperties.NewFace = KbbImportedFaces(i).NewFace
+
+                Return FaceProperties
+            End If
+        Next
+        Return -1
+    End Function
+
+    Public Shared Sub SetUFOFaceProps(FID As UInt32, InInfoData As KbbImportedFaceInfo)
+        For i = 0 To 9
+            If KbbImportedFaces(i).FaceID = FID Then
+                KbbImportedFaces(i).NewFace = InInfoData.NewFace
+            End If
+        Next
+    End Sub
+
     Public Shared Sub NewFace(FaceImage As Bitmap, FaceProps As KbbFaceInfo)
         Dim OK As Boolean = False
         For i = 0 To 48
@@ -397,15 +436,46 @@ Public Class KbbEditor
                 Next
             End If
             If OK = True Then
-                Exit For
+                Exit Sub
+            End If
+        Next
+    End Sub
+
+    Public Shared Sub NewUFOFace(FaceImage As Bitmap)
+        Dim OK As Boolean = False
+        For i = 0 To 9
+            ' To do: do the code
+            If OK = True Then
+                Exit Sub
             End If
         Next
     End Sub
 
     Public Shared Sub DeleteFace(FID As UInt32)
-        Dim FIDGoneFromReorder As Boolean = False
         If FID = &HFFFFFFFFUI Then
             MsgBox("Face is null", vbCritical + vbOK, "Error while deleting face")
+        End If
+        If FID < 10 Then
+            For i = 0 To 9
+                If KbbImportedFaces(i).FaceID = FID Then
+                    AvailableUFOFRIslots(KbbImportedFaces(i).FRIindex) = True
+                    KbbImportedFaces(i).FRIindex = -1
+                    KbbImportedFaces(i).FaceID = &HFFFFFFFFUI
+                    KbbImportedFaces(i).NewFace = True
+                    Dim FacesReOrder(9) As UInt32
+                    Dim Offset = 0
+                    For j = 0 To UFOFacesOrder.Length - 1
+                        If UFOFacesOrder(j) = FID Then
+                            Offset += 1
+                        Else
+                            FacesReOrder(j - Offset) = UFOFacesOrder(j)
+                        End If
+                    Next
+                    UFOFacesOrder = FacesReOrder
+                    UFOFacesOrder(9) = &HFFFFFFFFUI
+                    Exit Sub
+                End If
+            Next
         End If
         For i = 0 To 48
             If KbbFaces(i).FaceID = FID Then
@@ -426,17 +496,16 @@ Public Class KbbEditor
                     KbbFaces(i).Rotation = 0
                     Dim FacesReOrder(48) As UInt32
                     Dim Offset = 0
-                    For j = 0 To FacesOrder.Length - 2
+                    For j = 0 To FacesOrder.Length - 1
                         If FacesOrder(j) = FID Then
                             Offset += 1
-                            FIDGoneFromReorder = True
                         Else
                             FacesReOrder(j - Offset) = FacesOrder(j)
                         End If
                     Next
                     FacesOrder = FacesReOrder
                     FacesOrder(48) = &HFFFFFFFFUI
-                    Exit For
+                    Exit Sub
                 End If
             End If
         Next
@@ -506,7 +575,6 @@ Public Class KbbEditor
             End If
 
             KbbImportedFaces(i).CaptureDate = BitConverter.ToInt64(KbbSave, &HE08 + (i * &H28))
-            KbbImportedFaces(i).ShowFace = BitConverter.ToBoolean(KbbSave, &HE14 + (i * &H28))
             KbbImportedFaces(i).NewFace = BitConverter.ToBoolean(KbbSave, &HE1C + (i * &H28))
 
             FRIindex += 1
@@ -663,7 +731,6 @@ Public Class KbbEditor
             End If
 
             ' File.ExportInt64(KbbSave, &HE08 + (i * &H28), KbbImportedFaces(i).CaptureDate)
-            KbbSave(&HE14 + (i * &H28)) = CByte(KbbImportedFaces(i).ShowFace)
             KbbSave(&HE1C + (i * &H28)) = CByte(KbbImportedFaces(i).NewFace)
         Next
 
