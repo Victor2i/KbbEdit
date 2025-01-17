@@ -117,30 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="String13" xml:space="preserve">
-    <value>You will need to access your SD card from your computer. If you have an SD card slot on your computer, or an adapter, like a SD to USB adapter, power off your 3DS and eject your SD card from it, then put it in your PC.</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Ins8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Instructions\Ins8.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Hello!
+I'm the help form.
+I will help you and explain how to import your Kbb save from your 3DS.
+FBI is needed, as it will let you access your save files!</value>
+  </data>
+  <data name="Stage1Select" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GameImages\Stage1Select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="String15" xml:space="preserve">
     <value>With KbbEdit, select "File" then "Open save" and browse to your SD card using the file explorer.
 Then, select the folder where you pasted your save files (in my case, I called it "xxxxx").</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Stage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\GameImages\Stage1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="String3" xml:space="preserve">
-    <value>Now, go down until you find "0002022D".
+    <value>Now, go down until you find "000202xD".
+For me, x is 2. For you, it could be 0, 1, 2 6, 7 or 8.
 That's your Face Raiders save file.
 Select it.</value>
   </data>
-  <data name="String6" xml:space="preserve">
-    <value>Now, select "Copy".</value>
-  </data>
   <data name="UnknownFace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\UnknownFace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Stage3Select" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GameImages\Stage3Select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stage2Select" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\GameImages\Stage2Select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,27 +161,24 @@ Select it.</value>
   <data name="Ins0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Instructions\Ins0.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Stage2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GameImages\Stage2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BonusStage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\GameImages\BonusStage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ins4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Instructions\Ins4.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Stage3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GameImages\Stage3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="face_calibrate_guide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\face_calibrate_guide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stage4Select" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\GameImages\Stage4Select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="String10" xml:space="preserve">
-    <value>Now, select "Paste".</value>
-  </data>
   <data name="String4" xml:space="preserve">
     <value>This will show up.
 Select "Browse Save Data"</value>
-  </data>
-  <data name="ExtraStage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GameImages\ExtraStage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ins5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Instructions\Ins5.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,6 +188,9 @@ Select "Browse Save Data"</value>
   </data>
   <data name="Ins11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Instructions\Ins11.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GitHubBranding" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\GitHubBranding.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="String8" xml:space="preserve">
     <value>Now, go to your SD card.
@@ -219,14 +223,20 @@ You can join it by selecting "About" then "Links" and clicking on the invite lin
   <data name="ExtraStageSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\GameImages\ExtraStageSelect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FaceUFO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\FaceUFO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Ins3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Instructions\Ins3.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FH_FCG_COMBO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\FH_FCG_COMBO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ins13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Instructions\Ins13.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Ins8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Instructions\Ins8.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="String10" xml:space="preserve">
+    <value>Now, select "Paste".</value>
   </data>
   <data name="OpenFolder_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\OpenFolder_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -247,6 +257,12 @@ Go to "System Save Data"</value>
   <data name="Ins2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Instructions\Ins2.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="String7" xml:space="preserve">
+    <value>FBI will copy all the files in the directory.
+"Kbb.dat" is the save file.
+"FaceF**.dat" files are your saved faces.
+"FaceP**.dat" files are pictures of faces found by the UFO in your Nintendo 3DS Camera gallery.</value>
+  </data>
   <data name="Ins9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Instructions\Ins9.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -256,14 +272,14 @@ Go to "System Save Data"</value>
   <data name="titlelogo_face_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\titlelogo_face.1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="String7" xml:space="preserve">
-    <value>FBI will copy all the files in the directory.
-"Kbb.dat" is the save file.
-"FaceF**.dat" files are your saved faces.
-"FaceP**.dat" files are pictures of faces found by the UFO in your Nintendo 3DS Camera gallery.</value>
+  <data name="ExtraStage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GameImages\ExtraStage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Stage1Select" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GameImages\Stage1Select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="String14" xml:space="preserve">
+    <value>Else, if you can't do what was said in the previous step, use FTPD (install it if you don't have it) or use the SD management tool in your 3DS system settings. There is a tutorial on YouTube by sthetix on how to use it.</value>
+  </data>
+  <data name="Stage3Select" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GameImages\Stage3Select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ins7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Instructions\Ins7.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -282,11 +298,8 @@ Now, close FBI.</value>
   <data name="Stage4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\GameImages\Stage4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value>Hello!
-I'm the help form.
-I will help you and explain how to import your Kbb save from your 3DS.
-FBI is needed, as it will let you access your save files!</value>
+  <data name="String6" xml:space="preserve">
+    <value>Now, select "Copy".</value>
   </data>
   <data name="Ins6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Instructions\Ins6.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -294,8 +307,8 @@ FBI is needed, as it will let you access your save files!</value>
   <data name="FaceHole" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\FaceHole.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Stage2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GameImages\Stage2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="String13" xml:space="preserve">
+    <value>You will need to access your SD card from your computer. If you have an SD card slot on your computer, or an adapter, like a SD to USB adapter, power off your 3DS and eject your SD card from it, then put it in your PC.</value>
   </data>
   <data name="OtherStageSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\GameImages\OtherStageSelect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -303,14 +316,17 @@ FBI is needed, as it will let you access your save files!</value>
   <data name="Ins12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Instructions\Ins12.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="String14" xml:space="preserve">
-    <value>Else, if you can't do what was said in the previous step, use FTPDB (install it if you don't have it) or use the SD management tool in your 3DS system settings. There is a tutorial on YouTube by sthetix on how to use it.</value>
+  <data name="Stage3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GameImages\Stage3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="String5" xml:space="preserve">
     <value>FBI will show you a folder.
 Select "&lt;current directory&gt;".</value>
   </data>
-  <data name="GitHubBranding" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\GitHubBranding.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NewFile_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewFile_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kbbempty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kbbempty.dat;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

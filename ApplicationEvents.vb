@@ -1,4 +1,6 @@
-﻿Imports Microsoft.VisualBasic.ApplicationServices
+﻿Imports System.Globalization
+Imports System.Threading
+Imports Microsoft.VisualBasic.ApplicationServices
 
 Namespace My
     ' The following events are available for MyApplication:
@@ -24,6 +26,8 @@ Namespace My
     ' End Sub
 
     Partial Friend Class MyApplication
-
+        Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US")
+        End Sub
     End Class
 End Namespace

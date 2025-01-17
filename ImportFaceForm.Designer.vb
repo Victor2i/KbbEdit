@@ -22,189 +22,189 @@ Partial Class ImportFaceForm
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
+        components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ImportFaceForm))
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.SelectImageButton = New System.Windows.Forms.Button()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.ResetImageTransformButton = New System.Windows.Forms.Button()
-        Me.ZoomPwr = New System.Windows.Forms.NumericUpDown()
-        Me.TrPwr = New System.Windows.Forms.NumericUpDown()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.FinishButton = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.AbortButton = New System.Windows.Forms.Button()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ZoomPwr, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrPwr, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(258, 258)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
-        'Timer1
-        '
-        Me.Timer1.Interval = 10
-        '
-        'SelectImageButton
-        '
-        Me.SelectImageButton.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.SelectImageButton.Location = New System.Drawing.Point(12, 276)
-        Me.SelectImageButton.Name = "SelectImageButton"
-        Me.SelectImageButton.Size = New System.Drawing.Size(258, 31)
-        Me.SelectImageButton.TabIndex = 1
-        Me.SelectImageButton.Text = "Select image..."
-        Me.SelectImageButton.UseVisualStyleBackColor = True
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.Filter = "Bitmap image|*.bmp|JPEG image|*.jpg;*.jpeg|PNG image|*.png"
-        '
-        'ResetImageTransformButton
-        '
-        Me.ResetImageTransformButton.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.ResetImageTransformButton.Location = New System.Drawing.Point(12, 313)
-        Me.ResetImageTransformButton.Name = "ResetImageTransformButton"
-        Me.ResetImageTransformButton.Size = New System.Drawing.Size(258, 31)
-        Me.ResetImageTransformButton.TabIndex = 2
-        Me.ResetImageTransformButton.Text = "Reset image transform"
-        Me.ResetImageTransformButton.UseVisualStyleBackColor = True
-        '
-        'ZoomPwr
-        '
-        Me.ZoomPwr.DecimalPlaces = 2
-        Me.ZoomPwr.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.ZoomPwr.Location = New System.Drawing.Point(150, 350)
-        Me.ZoomPwr.Maximum = New Decimal(New Integer() {3, 0, 0, 0})
-        Me.ZoomPwr.Minimum = New Decimal(New Integer() {1, 0, 0, 131072})
-        Me.ZoomPwr.Name = "ZoomPwr"
-        Me.ZoomPwr.Size = New System.Drawing.Size(120, 23)
-        Me.ZoomPwr.TabIndex = 3
-        Me.ZoomPwr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ZoomPwr.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
-        'TrPwr
-        '
-        Me.TrPwr.DecimalPlaces = 2
-        Me.TrPwr.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.TrPwr.Location = New System.Drawing.Point(150, 379)
-        Me.TrPwr.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.TrPwr.Minimum = New Decimal(New Integer() {1, 0, 0, 131072})
-        Me.TrPwr.Name = "TrPwr"
-        Me.TrPwr.Size = New System.Drawing.Size(120, 23)
-        Me.TrPwr.TabIndex = 4
-        Me.TrPwr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.TrPwr.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.Label1.Location = New System.Drawing.Point(12, 350)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(106, 23)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Zoom Power"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.Label2.Location = New System.Drawing.Point(12, 379)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(129, 23)
-        Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Translate Power"
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(12, 440)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(161, 19)
-        Me.CheckBox1.TabIndex = 7
-        Me.CheckBox1.Text = "Show face calibrate guide"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'FinishButton
-        '
-        Me.FinishButton.Enabled = False
-        Me.FinishButton.Location = New System.Drawing.Point(195, 437)
-        Me.FinishButton.Name = "FinishButton"
-        Me.FinishButton.Size = New System.Drawing.Size(75, 23)
-        Me.FinishButton.TabIndex = 8
-        Me.FinishButton.Text = "Finish"
-        Me.FinishButton.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.Label3.Location = New System.Drawing.Point(12, 408)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(109, 23)
-        Me.Label3.TabIndex = 9
-        Me.Label3.Text = "Interpolation"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Default", "Low", "High", "Bilinear", "Bicubic", "Nearest Neighbor", "High Quality Bilinear", "High Quality Bicubic"})
-        Me.ComboBox1.Location = New System.Drawing.Point(150, 408)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(120, 23)
-        Me.ComboBox1.TabIndex = 10
-        Me.ComboBox1.Text = "Default"
-        '
-        'AbortButton
-        '
-        Me.AbortButton.Location = New System.Drawing.Point(195, 466)
-        Me.AbortButton.Name = "AbortButton"
-        Me.AbortButton.Size = New System.Drawing.Size(75, 23)
-        Me.AbortButton.TabIndex = 11
-        Me.AbortButton.Text = "Abort"
-        Me.AbortButton.UseVisualStyleBackColor = True
-        '
-        'ImportFaceForm
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(282, 501)
-        Me.ControlBox = False
-        Me.Controls.Add(Me.AbortButton)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.FinishButton)
-        Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TrPwr)
-        Me.Controls.Add(Me.ZoomPwr)
-        Me.Controls.Add(Me.ResetImageTransformButton)
-        Me.Controls.Add(Me.SelectImageButton)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
-        Me.Name = "ImportFaceForm"
-        Me.Text = "Import face"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ZoomPwr, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrPwr, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        PictureBox1 = New PictureBox()
+        Timer1 = New Timer(components)
+        SelectImageButton = New Button()
+        OpenFileDialog1 = New OpenFileDialog()
+        ResetImageTransformButton = New Button()
+        ZoomPwr = New NumericUpDown()
+        TrPwr = New NumericUpDown()
+        Label1 = New Label()
+        Label2 = New Label()
+        CheckBox1 = New CheckBox()
+        FinishButton = New Button()
+        Label3 = New Label()
+        ComboBox1 = New ComboBox()
+        AbortButton = New Button()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(ZoomPwr, ComponentModel.ISupportInitialize).BeginInit()
+        CType(TrPwr, ComponentModel.ISupportInitialize).BeginInit()
+        SuspendLayout()
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+        PictureBox1.BorderStyle = BorderStyle.FixedSingle
+        PictureBox1.Location = New Point(12, 12)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(258, 258)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 0
+        PictureBox1.TabStop = False
+        ' 
+        ' Timer1
+        ' 
+        Timer1.Interval = 10
+        ' 
+        ' SelectImageButton
+        ' 
+        SelectImageButton.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        SelectImageButton.Location = New Point(12, 276)
+        SelectImageButton.Name = "SelectImageButton"
+        SelectImageButton.Size = New Size(258, 31)
+        SelectImageButton.TabIndex = 1
+        SelectImageButton.Text = "Select image..."
+        SelectImageButton.UseVisualStyleBackColor = True
+        ' 
+        ' OpenFileDialog1
+        ' 
+        OpenFileDialog1.Filter = "PNG image|*.png|Bitmap image|*.bmp|JPEG image|*.jpg;*.jpeg"
+        ' 
+        ' ResetImageTransformButton
+        ' 
+        ResetImageTransformButton.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        ResetImageTransformButton.Location = New Point(12, 313)
+        ResetImageTransformButton.Name = "ResetImageTransformButton"
+        ResetImageTransformButton.Size = New Size(258, 31)
+        ResetImageTransformButton.TabIndex = 2
+        ResetImageTransformButton.Text = "Reset image transform"
+        ResetImageTransformButton.UseVisualStyleBackColor = True
+        ' 
+        ' ZoomPwr
+        ' 
+        ZoomPwr.DecimalPlaces = 2
+        ZoomPwr.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        ZoomPwr.Location = New Point(150, 350)
+        ZoomPwr.Maximum = New Decimal(New Integer() {3, 0, 0, 0})
+        ZoomPwr.Minimum = New Decimal(New Integer() {1, 0, 0, 131072})
+        ZoomPwr.Name = "ZoomPwr"
+        ZoomPwr.Size = New Size(120, 23)
+        ZoomPwr.TabIndex = 3
+        ZoomPwr.TextAlign = HorizontalAlignment.Center
+        ZoomPwr.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        ' 
+        ' TrPwr
+        ' 
+        TrPwr.DecimalPlaces = 2
+        TrPwr.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        TrPwr.Location = New Point(150, 379)
+        TrPwr.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
+        TrPwr.Minimum = New Decimal(New Integer() {1, 0, 0, 131072})
+        TrPwr.Name = "TrPwr"
+        TrPwr.Size = New Size(120, 23)
+        TrPwr.TabIndex = 4
+        TrPwr.TextAlign = HorizontalAlignment.Center
+        TrPwr.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 17F, FontStyle.Regular, GraphicsUnit.Pixel)
+        Label1.Location = New Point(12, 350)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(106, 23)
+        Label1.TabIndex = 5
+        Label1.Text = "Zoom Power"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI", 17F, FontStyle.Regular, GraphicsUnit.Pixel)
+        Label2.Location = New Point(12, 379)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(129, 23)
+        Label2.TabIndex = 6
+        Label2.Text = "Translate Power"
+        ' 
+        ' CheckBox1
+        ' 
+        CheckBox1.AutoSize = True
+        CheckBox1.Location = New Point(12, 440)
+        CheckBox1.Name = "CheckBox1"
+        CheckBox1.Size = New Size(161, 19)
+        CheckBox1.TabIndex = 7
+        CheckBox1.Text = "Show face calibrate guide"
+        CheckBox1.UseVisualStyleBackColor = True
+        ' 
+        ' FinishButton
+        ' 
+        FinishButton.Enabled = False
+        FinishButton.Location = New Point(195, 437)
+        FinishButton.Name = "FinishButton"
+        FinishButton.Size = New Size(75, 23)
+        FinishButton.TabIndex = 8
+        FinishButton.Text = "Finish"
+        FinishButton.UseVisualStyleBackColor = True
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Font = New Font("Segoe UI", 17F, FontStyle.Regular, GraphicsUnit.Pixel)
+        Label3.Location = New Point(12, 408)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(109, 23)
+        Label3.TabIndex = 9
+        Label3.Text = "Interpolation"
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Items.AddRange(New Object() {"Default", "Low", "High", "Bilinear", "Bicubic", "Nearest Neighbor", "High Quality Bilinear", "High Quality Bicubic"})
+        ComboBox1.Location = New Point(150, 408)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(120, 23)
+        ComboBox1.TabIndex = 10
+        ComboBox1.Text = "Default"
+        ' 
+        ' AbortButton
+        ' 
+        AbortButton.Location = New Point(195, 466)
+        AbortButton.Name = "AbortButton"
+        AbortButton.Size = New Size(75, 23)
+        AbortButton.TabIndex = 11
+        AbortButton.Text = "Abort"
+        AbortButton.UseVisualStyleBackColor = True
+        ' 
+        ' ImportFaceForm
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(282, 501)
+        ControlBox = False
+        Controls.Add(AbortButton)
+        Controls.Add(ComboBox1)
+        Controls.Add(Label3)
+        Controls.Add(FinishButton)
+        Controls.Add(CheckBox1)
+        Controls.Add(Label2)
+        Controls.Add(Label1)
+        Controls.Add(TrPwr)
+        Controls.Add(ZoomPwr)
+        Controls.Add(ResetImageTransformButton)
+        Controls.Add(SelectImageButton)
+        Controls.Add(PictureBox1)
+        FormBorderStyle = FormBorderStyle.FixedSingle
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        MaximizeBox = False
+        Name = "ImportFaceForm"
+        Text = "Import face"
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(ZoomPwr, ComponentModel.ISupportInitialize).EndInit()
+        CType(TrPwr, ComponentModel.ISupportInitialize).EndInit()
+        ResumeLayout(False)
+        PerformLayout()
 
     End Sub
 

@@ -41,7 +41,7 @@ Public Class FaceEditor
             g.Clear(Color.Black)
 
             g.ScaleTransform(0.59375, 0.59375)
-            g.DrawImage(KbbEditor.UFOFaceImages(KbbEditor.UFOFacesOrder(0)), 38, 69)
+            g.DrawImage(KbbEditor.UFOFaceImages(0), 38, 69)
 
             g.ResetTransform()
             g.DrawImage(My.Resources.FaceUFO, 0, 0)
@@ -91,6 +91,7 @@ Public Class FaceEditor
         Else
             RightPageButton.Enabled = True
         End If
+        UpdateImageBuffer()
     End Sub
 
     Sub LoadSelectedFaceProps()
@@ -101,7 +102,7 @@ Public Class FaceEditor
         MonthBox.Value = SelectedFaceProps.MonthMet
         DayBox.Maximum = MonthDaysLUT(MonthBox.Value - 1)
         If MonthBox.Value = 2 Then
-            If YearBox.Value Mod 4 = 0 Then
+            If (YearBox.Value Mod 4 = 0) And ((YearBox.Value Mod 100 <> 0) Or (YearBox.Value Mod 400 = 0)) Then
                 DayBox.Maximum = 29
             End If
         End If
@@ -123,7 +124,7 @@ Public Class FaceEditor
         VerticalStretchBox.Value = SelectedFaceProps.YStretch
         RotationBox.Value = SelectedFaceProps.Rotation
 
-        UpdateImageBufferTimer.Enabled = True
+        UpdateImageBuffer()
     End Sub
 
     Private Sub LeftPageButton_Click(sender As Object, e As EventArgs) Handles LeftPageButton.Click
@@ -191,7 +192,7 @@ Public Class FaceEditor
         Else
             RightPageButton.Enabled = True
         End If
-        UpdateImageBuffer(Nothing, Nothing)
+        UpdateImageBuffer()
     End Sub
 
     Private Sub RightPageButton_Click(sender As Object, e As EventArgs) Handles RightPageButton.Click
@@ -254,7 +255,7 @@ Public Class FaceEditor
         Else
             RightPageButton.Enabled = False
         End If
-        UpdateImageBuffer(Nothing, Nothing)
+        UpdateImageBuffer()
     End Sub
 
     Private Sub FaceBox1_Click(sender As Object, e As EventArgs) Handles FaceBox1.Click
@@ -268,13 +269,16 @@ Public Class FaceEditor
                 SelectedFace = KbbEditor.FacesOrder(-1 + 10 * FacePage)
                 LoadSelectedFaceProps()
             Else
-                ' UFOEditor.Show()
+                If KbbEditor.UFOFacesOrder(0) <> &HFFFFFFFFUI Then
+                    UFOEditor.Show()
+                End If
             End If
         Else
             If FacePage > 0 Then
                 SwapFaces(SelectedFace, KbbEditor.FacesOrder(-1 + 10 * FacePage))
             End If
         End If
+        UpdateImageBuffer()
     End Sub
 
     Private Sub FaceBox2_Click(sender As Object, e As EventArgs) Handles FaceBox2.Click
@@ -289,6 +293,7 @@ Public Class FaceEditor
         Else
             SwapFaces(SelectedFace, KbbEditor.FacesOrder(0 + 10 * FacePage))
         End If
+        UpdateImageBuffer()
     End Sub
 
     Private Sub FaceBox3_Click(sender As Object, e As EventArgs) Handles FaceBox3.Click
@@ -303,6 +308,7 @@ Public Class FaceEditor
         Else
             SwapFaces(SelectedFace, KbbEditor.FacesOrder(1 + 10 * FacePage))
         End If
+        UpdateImageBuffer()
     End Sub
 
     Private Sub FaceBox4_Click(sender As Object, e As EventArgs) Handles FaceBox4.Click
@@ -317,6 +323,7 @@ Public Class FaceEditor
         Else
             SwapFaces(SelectedFace, KbbEditor.FacesOrder(2 + 10 * FacePage))
         End If
+        UpdateImageBuffer()
     End Sub
 
     Private Sub FaceBox5_Click(sender As Object, e As EventArgs) Handles FaceBox5.Click
@@ -331,6 +338,7 @@ Public Class FaceEditor
         Else
             SwapFaces(SelectedFace, KbbEditor.FacesOrder(3 + 10 * FacePage))
         End If
+        UpdateImageBuffer()
     End Sub
 
     Private Sub FaceBox6_Click(sender As Object, e As EventArgs) Handles FaceBox6.Click
@@ -345,6 +353,7 @@ Public Class FaceEditor
         Else
             SwapFaces(SelectedFace, KbbEditor.FacesOrder(4 + 10 * FacePage))
         End If
+        UpdateImageBuffer()
     End Sub
 
     Private Sub FaceBox7_Click(sender As Object, e As EventArgs) Handles FaceBox7.Click
@@ -359,6 +368,7 @@ Public Class FaceEditor
         Else
             SwapFaces(SelectedFace, KbbEditor.FacesOrder(5 + 10 * FacePage))
         End If
+        UpdateImageBuffer()
     End Sub
 
     Private Sub FaceBox8_Click(sender As Object, e As EventArgs) Handles FaceBox8.Click
@@ -373,6 +383,7 @@ Public Class FaceEditor
         Else
             SwapFaces(SelectedFace, KbbEditor.FacesOrder(6 + 10 * FacePage))
         End If
+        UpdateImageBuffer()
     End Sub
 
     Private Sub FaceBox9_Click(sender As Object, e As EventArgs) Handles FaceBox9.Click
@@ -387,6 +398,7 @@ Public Class FaceEditor
         Else
             SwapFaces(SelectedFace, KbbEditor.FacesOrder(7 + 10 * FacePage))
         End If
+        UpdateImageBuffer()
     End Sub
 
     Private Sub FaceBox10_Click(sender As Object, e As EventArgs) Handles FaceBox10.Click
@@ -401,6 +413,7 @@ Public Class FaceEditor
         Else
             SwapFaces(SelectedFace, KbbEditor.FacesOrder(8 + 10 * FacePage))
         End If
+        UpdateImageBuffer()
     End Sub
 
     Private Sub DayBox_ValueChanged(sender As Object, e As EventArgs) Handles DayBox.ValueChanged
@@ -411,7 +424,7 @@ Public Class FaceEditor
         SelectedFaceProps.MonthMet = MonthBox.Value
         DayBox.Maximum = MonthDaysLUT(MonthBox.Value - 1)
         If MonthBox.Value = 2 Then
-            If YearBox.Value Mod 4 = 0 Then
+            If (YearBox.Value Mod 4 = 0) And ((YearBox.Value Mod 100 <> 0) Or (YearBox.Value Mod 400 = 0)) Then
                 DayBox.Maximum = 29
             End If
         End If
@@ -420,7 +433,7 @@ Public Class FaceEditor
     Private Sub YearBox_ValueChanged(sender As Object, e As EventArgs) Handles YearBox.ValueChanged
         SelectedFaceProps.YearMet = YearBox.Value
         If MonthBox.Value = 2 Then
-            If YearBox.Value Mod 4 = 0 Then
+            If (YearBox.Value Mod 4 = 0) And ((YearBox.Value Mod 100 <> 0) Or (YearBox.Value Mod 400 = 0)) Then
                 DayBox.Maximum = 29
             Else
                 DayBox.Maximum = 28
@@ -450,22 +463,27 @@ Public Class FaceEditor
 
     Private Sub HorizontalScrollBox_ValueChanged(sender As Object, e As EventArgs) Handles HorizontalScrollBox.ValueChanged
         SelectedFaceProps.XMove = HorizontalScrollBox.Value
+        UpdateImageBuffer()
     End Sub
 
     Private Sub VerticalScrollBox_ValueChanged(sender As Object, e As EventArgs) Handles VerticalScrollBox.ValueChanged
         SelectedFaceProps.YMove = VerticalScrollBox.Value
+        UpdateImageBuffer()
     End Sub
 
     Private Sub HorizontalStretchBox_ValueChanged(sender As Object, e As EventArgs) Handles HorizontalStretchBox.ValueChanged
         SelectedFaceProps.XStretch = HorizontalStretchBox.Value
+        UpdateImageBuffer()
     End Sub
 
     Private Sub VerticalStretchBox_ValueChanged(sender As Object, e As EventArgs) Handles VerticalStretchBox.ValueChanged
         SelectedFaceProps.YStretch = VerticalStretchBox.Value
+        UpdateImageBuffer()
     End Sub
 
     Private Sub RotationBox_ValueChanged(sender As Object, e As EventArgs) Handles RotationBox.ValueChanged
         SelectedFaceProps.Rotation = RotationBox.Value
+        UpdateImageBuffer()
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
@@ -488,40 +506,14 @@ Public Class FaceEditor
         UFOEditor.ImportFaceButton.Enabled = False
         ImportFaceForm.IsUFO = False
         ImportFaceForm.Show()
+        UpdateImageBuffer()
     End Sub
 
     Private Sub ExportFaceButton_Click(sender As Object, e As EventArgs) Handles ExportFaceButton.Click
         If (SaveFileDialog1.ShowDialog() = DialogResult.OK) Then
             Dim ExportedFace As Image = KbbEditor.GetFaceImage(SelectedFace)
-            Dim PathBytes = System.Text.Encoding.Unicode.GetBytes(SaveFileDialog1.FileName)
-            Dim OutFormat As String = ""
-            Dim DotLoc As Integer = PathBytes.Length - 2
-            While ChrW(PathBytes(DotLoc)) <> "."
-                If DotLoc > 0 Then
-                    DotLoc -= 2
-                Else
-                    Exit While
-                End If
-            End While
-            DotLoc += 2
-            While DotLoc < PathBytes.Length
-                If PathBytes(DotLoc) >= &H61 And PathBytes(DotLoc) <= &H7A And PathBytes(DotLoc + 1) = &H0 Then
-                    OutFormat += ChrW(PathBytes(DotLoc) - &H20)
-                Else
-                    OutFormat += ChrW(PathBytes(DotLoc))
-                End If
-                DotLoc += 2
-            End While
-            Select Case OutFormat
-                Case "BMP"
-                    ExportedFace.Save(SaveFileDialog1.FileName, Imaging.ImageFormat.Bmp)
-                Case "JPG", "JPEG"
-                    ExportedFace.Save(SaveFileDialog1.FileName, Imaging.ImageFormat.Jpeg)
-                Case "PNG"
-                    ExportedFace.Save(SaveFileDialog1.FileName, Imaging.ImageFormat.Png)
-                Case Else
-                    MsgBox("Sorry... This file format is not supported!", MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Error while saving face as image")
-            End Select
+            ExportedFace.Save(SaveFileDialog1.FileName)
+            ExportedFace.Dispose()
         End If
     End Sub
 
@@ -551,6 +543,7 @@ Public Class FaceEditor
             Me.Text = "Face editor"
             FreeEverything()
         End If
+        UpdateImageBuffer()
     End Sub
 
     Sub SwapFaces(FirstFace, OtherFace)
@@ -567,6 +560,7 @@ Public Class FaceEditor
         SwapFacesButton.Text = "Swap faces"
         Me.Text = "Face editor"
         FreeEverything()
+        UpdateImageBuffer()
         MsgBox("Faces swapped!", vbInformation + vbOKOnly, "Success")
     End Sub
 
@@ -788,18 +782,7 @@ Public Class FaceEditor
     Public Sub ChangeFaceImage()
         KbbEditor.SetFaceImage(SelectedFace, FaceToEdit)
         SelectedFaceBox.BackgroundImage = FaceToEdit
-        If FacePage <> 0 Then
-            FaceBox1.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(-1 + 10 * FacePage))
-        End If
-        FaceBox2.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(0 + 10 * FacePage))
-        FaceBox3.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(1 + 10 * FacePage))
-        FaceBox4.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(2 + 10 * FacePage))
-        FaceBox5.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(3 + 10 * FacePage))
-        FaceBox6.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(4 + 10 * FacePage))
-        FaceBox7.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(5 + 10 * FacePage))
-        FaceBox8.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(6 + 10 * FacePage))
-        FaceBox9.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(7 + 10 * FacePage))
-        FaceBox10.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.FacesOrder(8 + 10 * FacePage))
+        UpdateImageBuffer()
     End Sub
 
     Public Sub ReDrawUFOThumb()
@@ -823,7 +806,7 @@ Public Class FaceEditor
         End If
     End Sub
 
-    Private Sub UpdateImageBuffer(sender As Object, e As EventArgs) Handles UpdateImageBufferTimer.Tick
+    Private Sub UpdateImageBuffer()
         Dim Corners As PointF()
 
         Dim FacePageCheck As Boolean() = {
@@ -832,112 +815,111 @@ Public Class FaceEditor
         }
 
         If SelectedFace <> &HFFFFFFFFUI Then
-            Dim gS As Graphics
-            gS = Graphics.FromImage(BackBufferS)
+            Dim gS As Graphics = Graphics.FromImage(BackBufferS)
             gS.Clear(Color.Black)
             Corners = ApplyTransforms(SelectedFaceProps)
             gS.DrawImage(KbbEditor.GetFaceImage(SelectedFace), Corners)
         End If
 
         If FacePage > 0 Then
-            Dim g1 As Graphics
-            g1 = Graphics.FromImage(BackBuffer1)
-            g1.Clear(Color.Black)
+            Dim g As Graphics = Graphics.FromImage(BackBuffer1)
+            g.Clear(Color.Black)
             FetchedFace = KbbEditor.FacesOrder(-1 + 10 * FacePage)
             FetchedFaceProps = KbbEditor.GetFaceProps(FetchedFace)
             Corners = ApplyTransforms(FetchedFaceProps)
-            g1.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
+            g.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
             FacePageCheck(0) = True
+            g.Dispose()
         End If
         If KbbEditor.FacesOrder(0 + 10 * FacePage) <> &HFFFFFFFFUI Then
-            Dim g2 As Graphics
-            g2 = Graphics.FromImage(BackBuffer2)
-            g2.Clear(Color.Black)
+            Dim g As Graphics = Graphics.FromImage(BackBuffer2)
+            g.Clear(Color.Black)
             FetchedFace = KbbEditor.FacesOrder(0 + 10 * FacePage)
             FetchedFaceProps = KbbEditor.GetFaceProps(FetchedFace)
             Corners = ApplyTransforms(FetchedFaceProps)
-            g2.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
+            g.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
             FacePageCheck(1) = True
+            g.Dispose()
         End If
         If KbbEditor.FacesOrder(1 + 10 * FacePage) <> &HFFFFFFFFUI Then
-            Dim g3 As Graphics
-            g3 = Graphics.FromImage(BackBuffer3)
-            g3.Clear(Color.Black)
+            Dim g As Graphics = Graphics.FromImage(BackBuffer3)
+            g.Clear(Color.Black)
             FetchedFace = KbbEditor.FacesOrder(1 + 10 * FacePage)
             FetchedFaceProps = KbbEditor.GetFaceProps(FetchedFace)
             Corners = ApplyTransforms(FetchedFaceProps)
-            g3.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
+            g.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
             FacePageCheck(2) = True
+            g.Dispose()
         End If
         If KbbEditor.FacesOrder(2 + 10 * FacePage) <> &HFFFFFFFFUI Then
-            Dim g4 As Graphics
-            g4 = Graphics.FromImage(BackBuffer4)
-            g4.Clear(Color.Black)
+            Dim g As Graphics = Graphics.FromImage(BackBuffer4)
+            g.Clear(Color.Black)
             FetchedFace = KbbEditor.FacesOrder(2 + 10 * FacePage)
             FetchedFaceProps = KbbEditor.GetFaceProps(FetchedFace)
             Corners = ApplyTransforms(FetchedFaceProps)
-            g4.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
+            g.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
             FacePageCheck(3) = True
+            g.Dispose()
         End If
         If KbbEditor.FacesOrder(3 + 10 * FacePage) <> &HFFFFFFFFUI Then
-            Dim g5 As Graphics
-            g5 = Graphics.FromImage(BackBuffer5)
-            g5.Clear(Color.Black)
+            Dim g As Graphics = Graphics.FromImage(BackBuffer5)
+            g.Clear(Color.Black)
             FetchedFace = KbbEditor.FacesOrder(3 + 10 * FacePage)
             FetchedFaceProps = KbbEditor.GetFaceProps(FetchedFace)
             Corners = ApplyTransforms(FetchedFaceProps)
-            g5.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
+            g.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
             FacePageCheck(4) = True
+            g.Dispose()
         End If
         If KbbEditor.FacesOrder(4 + 10 * FacePage) <> &HFFFFFFFFUI Then
-            Dim g6 As Graphics
-            g6 = Graphics.FromImage(BackBuffer6)
-            g6.Clear(Color.Black)
+            Dim g As Graphics = Graphics.FromImage(BackBuffer6)
+            g.Clear(Color.Black)
             FetchedFace = KbbEditor.FacesOrder(4 + 10 * FacePage)
             FetchedFaceProps = KbbEditor.GetFaceProps(FetchedFace)
             Corners = ApplyTransforms(FetchedFaceProps)
-            g6.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
+            g.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
             FacePageCheck(5) = True
+            g.Dispose()
         End If
         If KbbEditor.FacesOrder(5 + 10 * FacePage) <> &HFFFFFFFFUI Then
-            Dim g7 As Graphics
-            g7 = Graphics.FromImage(BackBuffer7)
-            g7.Clear(Color.Black)
+            Dim g As Graphics = Graphics.FromImage(BackBuffer7)
+            g.Clear(Color.Black)
             FetchedFace = KbbEditor.FacesOrder(5 + 10 * FacePage)
             FetchedFaceProps = KbbEditor.GetFaceProps(FetchedFace)
             Corners = ApplyTransforms(FetchedFaceProps)
-            g7.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
+            g.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
             FacePageCheck(6) = True
+            g.Dispose()
         End If
         If KbbEditor.FacesOrder(6 + 10 * FacePage) <> &HFFFFFFFFUI Then
-            Dim g8 As Graphics
-            g8 = Graphics.FromImage(BackBuffer8)
-            g8.Clear(Color.Black)
+            Dim g As Graphics = Graphics.FromImage(BackBuffer8)
+            g.Clear(Color.Black)
             FetchedFace = KbbEditor.FacesOrder(6 + 10 * FacePage)
             FetchedFaceProps = KbbEditor.GetFaceProps(FetchedFace)
             Corners = ApplyTransforms(FetchedFaceProps)
-            g8.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
+            g.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
             FacePageCheck(7) = True
+            g.Dispose()
         End If
         If KbbEditor.FacesOrder(7 + 10 * FacePage) <> &HFFFFFFFFUI Then
-            Dim g9 As Graphics
-            g9 = Graphics.FromImage(BackBuffer9)
-            g9.Clear(Color.Black)
+            Dim g As Graphics = Graphics.FromImage(BackBuffer9)
+            g.Clear(Color.Black)
             FetchedFace = KbbEditor.FacesOrder(7 + 10 * FacePage)
             FetchedFaceProps = KbbEditor.GetFaceProps(FetchedFace)
             Corners = ApplyTransforms(FetchedFaceProps)
-            g9.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
+            g.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
             FacePageCheck(8) = True
+            g.Dispose()
         End If
         If KbbEditor.FacesOrder(8 + 10 * FacePage) <> &HFFFFFFFFUI Then
-            Dim g10 As Graphics
-            g10 = Graphics.FromImage(BackBuffer10)
-            g10.Clear(Color.Black)
+            Dim g As Graphics = Graphics.FromImage(BackBuffer10)
+            g.Clear(Color.Black)
             FetchedFace = KbbEditor.FacesOrder(8 + 10 * FacePage)
             FetchedFaceProps = KbbEditor.GetFaceProps(FetchedFace)
             Corners = ApplyTransforms(FetchedFaceProps)
-            g10.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
+            g.DrawImage(KbbEditor.GetFaceImage(FetchedFace), Corners)
             FacePageCheck(9) = True
+            g.Dispose()
         End If
 
         ' End draw

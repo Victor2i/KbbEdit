@@ -23,69 +23,69 @@ Partial Class InstructionsForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(InstructionsForm))
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PrevButton = New System.Windows.Forms.Button()
-        Me.NextButton = New System.Windows.Forms.Button()
-        Me.HelpLabel = New System.Windows.Forms.Label()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.KbbEdit.My.Resources.Resources.Ins0
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 143)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(320, 240)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
-        'PrevButton
-        '
-        Me.PrevButton.Enabled = False
-        Me.PrevButton.Font = New System.Drawing.Font("Segoe UI Variable Text Semibold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.PrevButton.Location = New System.Drawing.Point(12, 389)
-        Me.PrevButton.Name = "PrevButton"
-        Me.PrevButton.Size = New System.Drawing.Size(157, 49)
-        Me.PrevButton.TabIndex = 1
-        Me.PrevButton.Text = "Previous"
-        Me.PrevButton.UseVisualStyleBackColor = True
-        '
-        'NextButton
-        '
-        Me.NextButton.Font = New System.Drawing.Font("Segoe UI Variable Text Semibold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.NextButton.Location = New System.Drawing.Point(175, 389)
-        Me.NextButton.Name = "NextButton"
-        Me.NextButton.Size = New System.Drawing.Size(157, 49)
-        Me.NextButton.TabIndex = 2
-        Me.NextButton.Text = "Next"
-        Me.NextButton.UseVisualStyleBackColor = True
-        '
-        'HelpLabel
-        '
-        Me.HelpLabel.Font = New System.Drawing.Font("Segoe UI Variable Text Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.HelpLabel.Location = New System.Drawing.Point(12, 9)
-        Me.HelpLabel.Name = "HelpLabel"
-        Me.HelpLabel.Size = New System.Drawing.Size(320, 131)
-        Me.HelpLabel.TabIndex = 3
-        Me.HelpLabel.Text = "Sample text"
-        Me.HelpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'InstructionsForm
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(344, 450)
-        Me.Controls.Add(Me.HelpLabel)
-        Me.Controls.Add(Me.NextButton)
-        Me.Controls.Add(Me.PrevButton)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
-        Me.Name = "InstructionsForm"
-        Me.Text = "Help"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
+        PictureBox1 = New PictureBox()
+        PrevButton = New Button()
+        NextButton = New Button()
+        HelpLabel = New Label()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        SuspendLayout()
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = My.Resources.Resources.Ins0
+        PictureBox1.Location = New Point(12, 143)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(320, 240)
+        PictureBox1.TabIndex = 0
+        PictureBox1.TabStop = False
+        ' 
+        ' PrevButton
+        ' 
+        PrevButton.Enabled = False
+        PrevButton.Font = New Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
+        PrevButton.Location = New Point(12, 389)
+        PrevButton.Name = "PrevButton"
+        PrevButton.Size = New Size(157, 49)
+        PrevButton.TabIndex = 1
+        PrevButton.Text = "Previous"
+        PrevButton.UseVisualStyleBackColor = True
+        ' 
+        ' NextButton
+        ' 
+        NextButton.Font = New Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
+        NextButton.Location = New Point(175, 389)
+        NextButton.Name = "NextButton"
+        NextButton.Size = New Size(157, 49)
+        NextButton.TabIndex = 2
+        NextButton.Text = "Next"
+        NextButton.UseVisualStyleBackColor = True
+        ' 
+        ' HelpLabel
+        ' 
+        HelpLabel.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        HelpLabel.Location = New Point(12, 9)
+        HelpLabel.Name = "HelpLabel"
+        HelpLabel.Size = New Size(320, 131)
+        HelpLabel.TabIndex = 3
+        HelpLabel.Text = "Sample text"
+        HelpLabel.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' InstructionsForm
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(344, 450)
+        Controls.Add(HelpLabel)
+        Controls.Add(NextButton)
+        Controls.Add(PrevButton)
+        Controls.Add(PictureBox1)
+        FormBorderStyle = FormBorderStyle.FixedSingle
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        MaximizeBox = False
+        Name = "InstructionsForm"
+        Text = "Help"
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        ResumeLayout(False)
 
     End Sub
 

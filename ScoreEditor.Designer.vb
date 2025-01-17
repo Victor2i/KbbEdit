@@ -22,378 +22,419 @@ Partial Class ScoreEditor
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ScoreEditor))
-        Me.Stage1Button = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.BestComboBox = New System.Windows.Forms.NumericUpDown()
-        Me.ScoreBox5 = New System.Windows.Forms.NumericUpDown()
-        Me.ScoreBox4 = New System.Windows.Forms.NumericUpDown()
-        Me.ScoreBox3 = New System.Windows.Forms.NumericUpDown()
-        Me.ScoreBox2 = New System.Windows.Forms.NumericUpDown()
-        Me.ScoreBox1 = New System.Windows.Forms.NumericUpDown()
-        Me.LevelLockCheckBox = New System.Windows.Forms.CheckBox()
-        Me.FacePicture5 = New System.Windows.Forms.PictureBox()
-        Me.FacePicture4 = New System.Windows.Forms.PictureBox()
-        Me.FacePicture3 = New System.Windows.Forms.PictureBox()
-        Me.FacePicture2 = New System.Windows.Forms.PictureBox()
-        Me.FacePicture1 = New System.Windows.Forms.PictureBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.SAFStage2Button = New System.Windows.Forms.Button()
-        Me.SAFBonusStageButton = New System.Windows.Forms.Button()
-        Me.SAFStage1Button = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.ExtraStageButton = New System.Windows.Forms.Button()
-        Me.BonusStageButton = New System.Windows.Forms.Button()
-        Me.Stage4Button = New System.Windows.Forms.Button()
-        Me.Stage3Button = New System.Windows.Forms.Button()
-        Me.Stage2Button = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel1.SuspendLayout()
-        CType(Me.BestComboBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ScoreBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ScoreBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ScoreBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ScoreBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ScoreBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FacePicture5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FacePicture4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FacePicture3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FacePicture2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FacePicture1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel2.SuspendLayout()
-        Me.SuspendLayout()
-        '
-        'Stage1Button
-        '
-        Me.Stage1Button.BackgroundImage = Global.KbbEdit.My.Resources.Resources.Stage1
-        Me.Stage1Button.FlatAppearance.BorderSize = 0
-        Me.Stage1Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Stage1Button.Location = New System.Drawing.Point(3, 51)
-        Me.Stage1Button.Name = "Stage1Button"
-        Me.Stage1Button.Size = New System.Drawing.Size(96, 80)
-        Me.Stage1Button.TabIndex = 2
-        Me.Stage1Button.UseVisualStyleBackColor = True
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.BestComboBox)
-        Me.Panel1.Controls.Add(Me.ScoreBox5)
-        Me.Panel1.Controls.Add(Me.ScoreBox4)
-        Me.Panel1.Controls.Add(Me.ScoreBox3)
-        Me.Panel1.Controls.Add(Me.ScoreBox2)
-        Me.Panel1.Controls.Add(Me.ScoreBox1)
-        Me.Panel1.Controls.Add(Me.LevelLockCheckBox)
-        Me.Panel1.Controls.Add(Me.FacePicture5)
-        Me.Panel1.Controls.Add(Me.FacePicture4)
-        Me.Panel1.Controls.Add(Me.FacePicture3)
-        Me.Panel1.Controls.Add(Me.FacePicture2)
-        Me.Panel1.Controls.Add(Me.FacePicture1)
-        Me.Panel1.Location = New System.Drawing.Point(324, 12)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(188, 354)
-        Me.Panel1.TabIndex = 3
-        '
-        'Label3
-        '
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(3, 279)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(128, 34)
-        Me.Label3.TabIndex = 13
-        Me.Label3.Text = "Best combo:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'BestComboBox
-        '
-        Me.BestComboBox.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.BestComboBox.Location = New System.Drawing.Point(137, 279)
-        Me.BestComboBox.Maximum = New Decimal(New Integer() {99, 0, 0, 0})
-        Me.BestComboBox.Name = "BestComboBox"
-        Me.BestComboBox.Size = New System.Drawing.Size(48, 34)
-        Me.BestComboBox.TabIndex = 21
-        Me.BestComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ScoreBox5
-        '
-        Me.ScoreBox5.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.ScoreBox5.Increment = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.ScoreBox5.Location = New System.Drawing.Point(57, 219)
-        Me.ScoreBox5.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.ScoreBox5.Name = "ScoreBox5"
-        Me.ScoreBox5.Size = New System.Drawing.Size(128, 48)
-        Me.ScoreBox5.TabIndex = 20
-        Me.ScoreBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ScoreBox4
-        '
-        Me.ScoreBox4.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.ScoreBox4.Increment = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.ScoreBox4.Location = New System.Drawing.Point(57, 165)
-        Me.ScoreBox4.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.ScoreBox4.Name = "ScoreBox4"
-        Me.ScoreBox4.Size = New System.Drawing.Size(128, 48)
-        Me.ScoreBox4.TabIndex = 19
-        Me.ScoreBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ScoreBox3
-        '
-        Me.ScoreBox3.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.ScoreBox3.Increment = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.ScoreBox3.Location = New System.Drawing.Point(57, 111)
-        Me.ScoreBox3.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.ScoreBox3.Name = "ScoreBox3"
-        Me.ScoreBox3.Size = New System.Drawing.Size(128, 48)
-        Me.ScoreBox3.TabIndex = 18
-        Me.ScoreBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ScoreBox2
-        '
-        Me.ScoreBox2.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.ScoreBox2.Increment = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.ScoreBox2.Location = New System.Drawing.Point(57, 57)
-        Me.ScoreBox2.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.ScoreBox2.Name = "ScoreBox2"
-        Me.ScoreBox2.Size = New System.Drawing.Size(128, 48)
-        Me.ScoreBox2.TabIndex = 17
-        Me.ScoreBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ScoreBox1
-        '
-        Me.ScoreBox1.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 30.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.ScoreBox1.Increment = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.ScoreBox1.Location = New System.Drawing.Point(57, 3)
-        Me.ScoreBox1.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.ScoreBox1.Name = "ScoreBox1"
-        Me.ScoreBox1.Size = New System.Drawing.Size(128, 48)
-        Me.ScoreBox1.TabIndex = 16
-        Me.ScoreBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'LevelLockCheckBox
-        '
-        Me.LevelLockCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.LevelLockCheckBox.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 21.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel)
-        Me.LevelLockCheckBox.Location = New System.Drawing.Point(3, 319)
-        Me.LevelLockCheckBox.Name = "LevelLockCheckBox"
-        Me.LevelLockCheckBox.Size = New System.Drawing.Size(182, 32)
-        Me.LevelLockCheckBox.TabIndex = 15
-        Me.LevelLockCheckBox.Text = "Level unlocked?"
-        Me.LevelLockCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LevelLockCheckBox.UseVisualStyleBackColor = True
-        '
-        'FacePicture5
-        '
-        Me.FacePicture5.BackgroundImage = Global.KbbEdit.My.Resources.Resources.DummyFace
-        Me.FacePicture5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.FacePicture5.Image = Global.KbbEdit.My.Resources.Resources.FaceHole
-        Me.FacePicture5.Location = New System.Drawing.Point(3, 219)
-        Me.FacePicture5.Name = "FacePicture5"
-        Me.FacePicture5.Size = New System.Drawing.Size(48, 48)
-        Me.FacePicture5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.FacePicture5.TabIndex = 14
-        Me.FacePicture5.TabStop = False
-        '
-        'FacePicture4
-        '
-        Me.FacePicture4.BackgroundImage = Global.KbbEdit.My.Resources.Resources.DummyFace
-        Me.FacePicture4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.FacePicture4.Image = Global.KbbEdit.My.Resources.Resources.FaceHole
-        Me.FacePicture4.Location = New System.Drawing.Point(3, 165)
-        Me.FacePicture4.Name = "FacePicture4"
-        Me.FacePicture4.Size = New System.Drawing.Size(48, 48)
-        Me.FacePicture4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.FacePicture4.TabIndex = 13
-        Me.FacePicture4.TabStop = False
-        '
-        'FacePicture3
-        '
-        Me.FacePicture3.BackgroundImage = Global.KbbEdit.My.Resources.Resources.DummyFace
-        Me.FacePicture3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.FacePicture3.Image = Global.KbbEdit.My.Resources.Resources.FaceHole
-        Me.FacePicture3.Location = New System.Drawing.Point(3, 111)
-        Me.FacePicture3.Name = "FacePicture3"
-        Me.FacePicture3.Size = New System.Drawing.Size(48, 48)
-        Me.FacePicture3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.FacePicture3.TabIndex = 12
-        Me.FacePicture3.TabStop = False
-        '
-        'FacePicture2
-        '
-        Me.FacePicture2.BackgroundImage = Global.KbbEdit.My.Resources.Resources.DummyFace
-        Me.FacePicture2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.FacePicture2.Image = Global.KbbEdit.My.Resources.Resources.FaceHole
-        Me.FacePicture2.Location = New System.Drawing.Point(3, 57)
-        Me.FacePicture2.Name = "FacePicture2"
-        Me.FacePicture2.Size = New System.Drawing.Size(48, 48)
-        Me.FacePicture2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.FacePicture2.TabIndex = 11
-        Me.FacePicture2.TabStop = False
-        '
-        'FacePicture1
-        '
-        Me.FacePicture1.BackgroundImage = Global.KbbEdit.My.Resources.Resources.DummyFace
-        Me.FacePicture1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.FacePicture1.Image = Global.KbbEdit.My.Resources.Resources.FaceHole
-        Me.FacePicture1.Location = New System.Drawing.Point(3, 3)
-        Me.FacePicture1.Name = "FacePicture1"
-        Me.FacePicture1.Size = New System.Drawing.Size(48, 48)
-        Me.FacePicture1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.FacePicture1.TabIndex = 5
-        Me.FacePicture1.TabStop = False
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.SAFStage2Button)
-        Me.Panel2.Controls.Add(Me.SAFBonusStageButton)
-        Me.Panel2.Controls.Add(Me.SAFStage1Button)
-        Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Controls.Add(Me.ExtraStageButton)
-        Me.Panel2.Controls.Add(Me.BonusStageButton)
-        Me.Panel2.Controls.Add(Me.Stage4Button)
-        Me.Panel2.Controls.Add(Me.Stage3Button)
-        Me.Panel2.Controls.Add(Me.Stage2Button)
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.Stage1Button)
-        Me.Panel2.Location = New System.Drawing.Point(12, 12)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(306, 354)
-        Me.Panel2.TabIndex = 4
-        '
-        'SAFStage2Button
-        '
-        Me.SAFStage2Button.BackgroundImage = Global.KbbEdit.My.Resources.Resources.OtherStage
-        Me.SAFStage2Button.FlatAppearance.BorderSize = 0
-        Me.SAFStage2Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SAFStage2Button.Location = New System.Drawing.Point(207, 271)
-        Me.SAFStage2Button.Name = "SAFStage2Button"
-        Me.SAFStage2Button.Size = New System.Drawing.Size(96, 80)
-        Me.SAFStage2Button.TabIndex = 12
-        Me.SAFStage2Button.UseVisualStyleBackColor = True
-        '
-        'SAFBonusStageButton
-        '
-        Me.SAFBonusStageButton.BackgroundImage = Global.KbbEdit.My.Resources.Resources.BonusStage
-        Me.SAFBonusStageButton.FlatAppearance.BorderSize = 0
-        Me.SAFBonusStageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SAFBonusStageButton.Location = New System.Drawing.Point(105, 271)
-        Me.SAFBonusStageButton.Name = "SAFBonusStageButton"
-        Me.SAFBonusStageButton.Size = New System.Drawing.Size(96, 80)
-        Me.SAFBonusStageButton.TabIndex = 11
-        Me.SAFBonusStageButton.UseVisualStyleBackColor = True
-        '
-        'SAFStage1Button
-        '
-        Me.SAFStage1Button.BackgroundImage = Global.KbbEdit.My.Resources.Resources.Stage1
-        Me.SAFStage1Button.FlatAppearance.BorderSize = 0
-        Me.SAFStage1Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SAFStage1Button.Location = New System.Drawing.Point(3, 271)
-        Me.SAFStage1Button.Name = "SAFStage1Button"
-        Me.SAFStage1Button.Size = New System.Drawing.Size(96, 80)
-        Me.SAFStage1Button.TabIndex = 10
-        Me.SAFStage1Button.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(3, 220)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(300, 48)
-        Me.Label2.TabIndex = 9
-        Me.Label2.Text = "Show a friend"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'ExtraStageButton
-        '
-        Me.ExtraStageButton.BackgroundImage = Global.KbbEdit.My.Resources.Resources.ExtraStage
-        Me.ExtraStageButton.FlatAppearance.BorderSize = 0
-        Me.ExtraStageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ExtraStageButton.Location = New System.Drawing.Point(207, 137)
-        Me.ExtraStageButton.Name = "ExtraStageButton"
-        Me.ExtraStageButton.Size = New System.Drawing.Size(96, 80)
-        Me.ExtraStageButton.TabIndex = 8
-        Me.ExtraStageButton.UseVisualStyleBackColor = True
-        '
-        'BonusStageButton
-        '
-        Me.BonusStageButton.BackgroundImage = Global.KbbEdit.My.Resources.Resources.BonusStage
-        Me.BonusStageButton.FlatAppearance.BorderSize = 0
-        Me.BonusStageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BonusStageButton.Location = New System.Drawing.Point(105, 137)
-        Me.BonusStageButton.Name = "BonusStageButton"
-        Me.BonusStageButton.Size = New System.Drawing.Size(96, 80)
-        Me.BonusStageButton.TabIndex = 7
-        Me.BonusStageButton.UseVisualStyleBackColor = True
-        '
-        'Stage4Button
-        '
-        Me.Stage4Button.BackgroundImage = Global.KbbEdit.My.Resources.Resources.Stage4
-        Me.Stage4Button.FlatAppearance.BorderSize = 0
-        Me.Stage4Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Stage4Button.Location = New System.Drawing.Point(3, 137)
-        Me.Stage4Button.Name = "Stage4Button"
-        Me.Stage4Button.Size = New System.Drawing.Size(96, 80)
-        Me.Stage4Button.TabIndex = 6
-        Me.Stage4Button.UseVisualStyleBackColor = True
-        '
-        'Stage3Button
-        '
-        Me.Stage3Button.BackgroundImage = Global.KbbEdit.My.Resources.Resources.Stage3
-        Me.Stage3Button.FlatAppearance.BorderSize = 0
-        Me.Stage3Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Stage3Button.Location = New System.Drawing.Point(207, 51)
-        Me.Stage3Button.Name = "Stage3Button"
-        Me.Stage3Button.Size = New System.Drawing.Size(96, 80)
-        Me.Stage3Button.TabIndex = 5
-        Me.Stage3Button.UseVisualStyleBackColor = True
-        '
-        'Stage2Button
-        '
-        Me.Stage2Button.BackgroundImage = Global.KbbEdit.My.Resources.Resources.Stage2
-        Me.Stage2Button.FlatAppearance.BorderSize = 0
-        Me.Stage2Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Stage2Button.Location = New System.Drawing.Point(105, 51)
-        Me.Stage2Button.Name = "Stage2Button"
-        Me.Stage2Button.Size = New System.Drawing.Size(96, 80)
-        Me.Stage2Button.TabIndex = 4
-        Me.Stage2Button.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Variable Display Semib", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(300, 48)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Play"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'ScoreEditor
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(524, 378)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
-        Me.Name = "ScoreEditor"
-        Me.Text = "Score editor"
-        Me.Panel1.ResumeLayout(False)
-        CType(Me.BestComboBox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ScoreBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ScoreBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ScoreBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ScoreBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ScoreBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FacePicture5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FacePicture4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FacePicture3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FacePicture2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FacePicture1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel2.ResumeLayout(False)
-        Me.ResumeLayout(False)
+        Stage1Button = New Button()
+        Panel1 = New Panel()
+        LevelWinCheckBox = New CheckBox()
+        LevelAnimCheckBox = New CheckBox()
+        Label3 = New Label()
+        MaxComboBox = New NumericUpDown()
+        ScoreBox5 = New NumericUpDown()
+        ScoreBox4 = New NumericUpDown()
+        ScoreBox3 = New NumericUpDown()
+        ScoreBox2 = New NumericUpDown()
+        ScoreBox1 = New NumericUpDown()
+        LevelLockCheckBox = New CheckBox()
+        FacePicture5 = New PictureBox()
+        FacePicture4 = New PictureBox()
+        FacePicture3 = New PictureBox()
+        FacePicture2 = New PictureBox()
+        FacePicture1 = New PictureBox()
+        Panel2 = New Panel()
+        Button1 = New Button()
+        SAFStage2Button = New Button()
+        SAFBonusStageButton = New Button()
+        SAFStage1Button = New Button()
+        Label2 = New Label()
+        ExtraStageButton = New Button()
+        BonusStageButton = New Button()
+        Stage4Button = New Button()
+        Stage3Button = New Button()
+        Stage2Button = New Button()
+        Label1 = New Label()
+        ToolTip1 = New ToolTip(components)
+        Panel1.SuspendLayout()
+        CType(MaxComboBox, ComponentModel.ISupportInitialize).BeginInit()
+        CType(ScoreBox5, ComponentModel.ISupportInitialize).BeginInit()
+        CType(ScoreBox4, ComponentModel.ISupportInitialize).BeginInit()
+        CType(ScoreBox3, ComponentModel.ISupportInitialize).BeginInit()
+        CType(ScoreBox2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(ScoreBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(FacePicture5, ComponentModel.ISupportInitialize).BeginInit()
+        CType(FacePicture4, ComponentModel.ISupportInitialize).BeginInit()
+        CType(FacePicture3, ComponentModel.ISupportInitialize).BeginInit()
+        CType(FacePicture2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(FacePicture1, ComponentModel.ISupportInitialize).BeginInit()
+        Panel2.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' Stage1Button
+        ' 
+        Stage1Button.BackgroundImage = My.Resources.Resources.Stage1
+        Stage1Button.FlatAppearance.BorderSize = 0
+        Stage1Button.FlatStyle = FlatStyle.Flat
+        Stage1Button.Location = New Point(3, 51)
+        Stage1Button.Name = "Stage1Button"
+        Stage1Button.Size = New Size(96, 80)
+        Stage1Button.TabIndex = 2
+        Stage1Button.UseVisualStyleBackColor = True
+        ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(LevelWinCheckBox)
+        Panel1.Controls.Add(LevelAnimCheckBox)
+        Panel1.Controls.Add(Label3)
+        Panel1.Controls.Add(MaxComboBox)
+        Panel1.Controls.Add(ScoreBox5)
+        Panel1.Controls.Add(ScoreBox4)
+        Panel1.Controls.Add(ScoreBox3)
+        Panel1.Controls.Add(ScoreBox2)
+        Panel1.Controls.Add(ScoreBox1)
+        Panel1.Controls.Add(LevelLockCheckBox)
+        Panel1.Controls.Add(FacePicture5)
+        Panel1.Controls.Add(FacePicture4)
+        Panel1.Controls.Add(FacePicture3)
+        Panel1.Controls.Add(FacePicture2)
+        Panel1.Controls.Add(FacePicture1)
+        Panel1.Location = New Point(324, 12)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(188, 432)
+        Panel1.TabIndex = 3
+        ' 
+        ' LevelWinCheckBox
+        ' 
+        LevelWinCheckBox.CheckAlign = ContentAlignment.MiddleRight
+        LevelWinCheckBox.Font = New Font("Segoe UI Semibold", 15F, FontStyle.Regular, GraphicsUnit.Point)
+        LevelWinCheckBox.Location = New Point(3, 318)
+        LevelWinCheckBox.Name = "LevelWinCheckBox"
+        LevelWinCheckBox.Size = New Size(182, 32)
+        LevelWinCheckBox.TabIndex = 23
+        LevelWinCheckBox.Text = "Level beaten?"
+        LevelWinCheckBox.UseVisualStyleBackColor = True
+        ' 
+        ' LevelAnimCheckBox
+        ' 
+        LevelAnimCheckBox.CheckAlign = ContentAlignment.MiddleRight
+        LevelAnimCheckBox.Font = New Font("Segoe UI Semibold", 15F, FontStyle.Regular, GraphicsUnit.Point)
+        LevelAnimCheckBox.Location = New Point(3, 394)
+        LevelAnimCheckBox.Name = "LevelAnimCheckBox"
+        LevelAnimCheckBox.Size = New Size(182, 32)
+        LevelAnimCheckBox.TabIndex = 22
+        LevelAnimCheckBox.Text = "Unlock anim"
+        LevelAnimCheckBox.UseVisualStyleBackColor = True
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Font = New Font("Segoe UI Semibold", 15F, FontStyle.Regular, GraphicsUnit.Point)
+        Label3.Location = New Point(3, 279)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(124, 28)
+        Label3.TabIndex = 13
+        Label3.Text = "Max combo:"
+        Label3.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' MaxComboBox
+        ' 
+        MaxComboBox.Font = New Font("Segoe UI Variable Display Semib", 20F, FontStyle.Regular, GraphicsUnit.Pixel)
+        MaxComboBox.Location = New Point(137, 278)
+        MaxComboBox.Maximum = New Decimal(New Integer() {99, 0, 0, 0})
+        MaxComboBox.Name = "MaxComboBox"
+        MaxComboBox.Size = New Size(48, 34)
+        MaxComboBox.TabIndex = 21
+        MaxComboBox.TextAlign = HorizontalAlignment.Right
+        ' 
+        ' ScoreBox5
+        ' 
+        ScoreBox5.Font = New Font("Segoe UI Variable Display Semib", 30.5F, FontStyle.Regular, GraphicsUnit.Pixel)
+        ScoreBox5.Increment = New Decimal(New Integer() {50, 0, 0, 0})
+        ScoreBox5.Location = New Point(57, 219)
+        ScoreBox5.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        ScoreBox5.Name = "ScoreBox5"
+        ScoreBox5.Size = New Size(128, 48)
+        ScoreBox5.TabIndex = 20
+        ScoreBox5.TextAlign = HorizontalAlignment.Right
+        ' 
+        ' ScoreBox4
+        ' 
+        ScoreBox4.Font = New Font("Segoe UI Variable Display Semib", 30.5F, FontStyle.Regular, GraphicsUnit.Pixel)
+        ScoreBox4.Increment = New Decimal(New Integer() {50, 0, 0, 0})
+        ScoreBox4.Location = New Point(57, 165)
+        ScoreBox4.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        ScoreBox4.Name = "ScoreBox4"
+        ScoreBox4.Size = New Size(128, 48)
+        ScoreBox4.TabIndex = 19
+        ScoreBox4.TextAlign = HorizontalAlignment.Right
+        ' 
+        ' ScoreBox3
+        ' 
+        ScoreBox3.Font = New Font("Segoe UI Variable Display Semib", 30.5F, FontStyle.Regular, GraphicsUnit.Pixel)
+        ScoreBox3.Increment = New Decimal(New Integer() {50, 0, 0, 0})
+        ScoreBox3.Location = New Point(57, 111)
+        ScoreBox3.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        ScoreBox3.Name = "ScoreBox3"
+        ScoreBox3.Size = New Size(128, 48)
+        ScoreBox3.TabIndex = 18
+        ScoreBox3.TextAlign = HorizontalAlignment.Right
+        ' 
+        ' ScoreBox2
+        ' 
+        ScoreBox2.Font = New Font("Segoe UI Variable Display Semib", 30.5F, FontStyle.Regular, GraphicsUnit.Pixel)
+        ScoreBox2.Increment = New Decimal(New Integer() {50, 0, 0, 0})
+        ScoreBox2.Location = New Point(57, 57)
+        ScoreBox2.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        ScoreBox2.Name = "ScoreBox2"
+        ScoreBox2.Size = New Size(128, 48)
+        ScoreBox2.TabIndex = 17
+        ScoreBox2.TextAlign = HorizontalAlignment.Right
+        ' 
+        ' ScoreBox1
+        ' 
+        ScoreBox1.Font = New Font("Segoe UI Variable Display Semib", 30.5F, FontStyle.Regular, GraphicsUnit.Pixel)
+        ScoreBox1.Increment = New Decimal(New Integer() {50, 0, 0, 0})
+        ScoreBox1.Location = New Point(57, 3)
+        ScoreBox1.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        ScoreBox1.Name = "ScoreBox1"
+        ScoreBox1.Size = New Size(128, 48)
+        ScoreBox1.TabIndex = 16
+        ScoreBox1.TextAlign = HorizontalAlignment.Right
+        ' 
+        ' LevelLockCheckBox
+        ' 
+        LevelLockCheckBox.CheckAlign = ContentAlignment.MiddleRight
+        LevelLockCheckBox.Font = New Font("Segoe UI Semibold", 15F, FontStyle.Regular, GraphicsUnit.Point)
+        LevelLockCheckBox.Location = New Point(3, 356)
+        LevelLockCheckBox.Name = "LevelLockCheckBox"
+        LevelLockCheckBox.Size = New Size(182, 32)
+        LevelLockCheckBox.TabIndex = 15
+        LevelLockCheckBox.Text = "Level unlocked?"
+        LevelLockCheckBox.UseVisualStyleBackColor = True
+        ' 
+        ' FacePicture5
+        ' 
+        FacePicture5.BackgroundImage = My.Resources.Resources.DummyFace
+        FacePicture5.BackgroundImageLayout = ImageLayout.Stretch
+        FacePicture5.Image = My.Resources.Resources.FaceHole
+        FacePicture5.Location = New Point(3, 219)
+        FacePicture5.Name = "FacePicture5"
+        FacePicture5.Size = New Size(48, 48)
+        FacePicture5.SizeMode = PictureBoxSizeMode.StretchImage
+        FacePicture5.TabIndex = 14
+        FacePicture5.TabStop = False
+        ' 
+        ' FacePicture4
+        ' 
+        FacePicture4.BackgroundImage = My.Resources.Resources.DummyFace
+        FacePicture4.BackgroundImageLayout = ImageLayout.Stretch
+        FacePicture4.Image = My.Resources.Resources.FaceHole
+        FacePicture4.Location = New Point(3, 165)
+        FacePicture4.Name = "FacePicture4"
+        FacePicture4.Size = New Size(48, 48)
+        FacePicture4.SizeMode = PictureBoxSizeMode.StretchImage
+        FacePicture4.TabIndex = 13
+        FacePicture4.TabStop = False
+        ' 
+        ' FacePicture3
+        ' 
+        FacePicture3.BackgroundImage = My.Resources.Resources.DummyFace
+        FacePicture3.BackgroundImageLayout = ImageLayout.Stretch
+        FacePicture3.Image = My.Resources.Resources.FaceHole
+        FacePicture3.Location = New Point(3, 111)
+        FacePicture3.Name = "FacePicture3"
+        FacePicture3.Size = New Size(48, 48)
+        FacePicture3.SizeMode = PictureBoxSizeMode.StretchImage
+        FacePicture3.TabIndex = 12
+        FacePicture3.TabStop = False
+        ' 
+        ' FacePicture2
+        ' 
+        FacePicture2.BackgroundImage = My.Resources.Resources.DummyFace
+        FacePicture2.BackgroundImageLayout = ImageLayout.Stretch
+        FacePicture2.Image = My.Resources.Resources.FaceHole
+        FacePicture2.Location = New Point(3, 57)
+        FacePicture2.Name = "FacePicture2"
+        FacePicture2.Size = New Size(48, 48)
+        FacePicture2.SizeMode = PictureBoxSizeMode.StretchImage
+        FacePicture2.TabIndex = 11
+        FacePicture2.TabStop = False
+        ' 
+        ' FacePicture1
+        ' 
+        FacePicture1.BackgroundImage = My.Resources.Resources.DummyFace
+        FacePicture1.BackgroundImageLayout = ImageLayout.Stretch
+        FacePicture1.Image = My.Resources.Resources.FaceHole
+        FacePicture1.Location = New Point(3, 3)
+        FacePicture1.Name = "FacePicture1"
+        FacePicture1.Size = New Size(48, 48)
+        FacePicture1.SizeMode = PictureBoxSizeMode.StretchImage
+        FacePicture1.TabIndex = 5
+        FacePicture1.TabStop = False
+        ' 
+        ' Panel2
+        ' 
+        Panel2.Controls.Add(Button1)
+        Panel2.Controls.Add(SAFStage2Button)
+        Panel2.Controls.Add(SAFBonusStageButton)
+        Panel2.Controls.Add(SAFStage1Button)
+        Panel2.Controls.Add(Label2)
+        Panel2.Controls.Add(ExtraStageButton)
+        Panel2.Controls.Add(BonusStageButton)
+        Panel2.Controls.Add(Stage4Button)
+        Panel2.Controls.Add(Stage3Button)
+        Panel2.Controls.Add(Stage2Button)
+        Panel2.Controls.Add(Label1)
+        Panel2.Controls.Add(Stage1Button)
+        Panel2.Location = New Point(12, 12)
+        Panel2.Name = "Panel2"
+        Panel2.Size = New Size(306, 432)
+        Panel2.TabIndex = 4
+        ' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(105, 394)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(96, 32)
+        Button1.TabIndex = 13
+        Button1.Text = "Tutorial Stage"
+        ToolTip1.SetToolTip(Button1, "This is a secret level which is a copy of SAF Stage 1." & vbCrLf & "You only get to play it once, that is when it is your first time ever playing the game." & vbCrLf & "You can view your score when you had beaten this stage.")
+        Button1.UseVisualStyleBackColor = True
+        ' 
+        ' SAFStage2Button
+        ' 
+        SAFStage2Button.BackgroundImage = My.Resources.Resources.OtherStage
+        SAFStage2Button.FlatAppearance.BorderSize = 0
+        SAFStage2Button.FlatStyle = FlatStyle.Flat
+        SAFStage2Button.Location = New Point(207, 271)
+        SAFStage2Button.Name = "SAFStage2Button"
+        SAFStage2Button.Size = New Size(96, 80)
+        SAFStage2Button.TabIndex = 12
+        SAFStage2Button.UseVisualStyleBackColor = True
+        ' 
+        ' SAFBonusStageButton
+        ' 
+        SAFBonusStageButton.BackgroundImage = My.Resources.Resources.BonusStage
+        SAFBonusStageButton.FlatAppearance.BorderSize = 0
+        SAFBonusStageButton.FlatStyle = FlatStyle.Flat
+        SAFBonusStageButton.Location = New Point(105, 271)
+        SAFBonusStageButton.Name = "SAFBonusStageButton"
+        SAFBonusStageButton.Size = New Size(96, 80)
+        SAFBonusStageButton.TabIndex = 11
+        SAFBonusStageButton.UseVisualStyleBackColor = True
+        ' 
+        ' SAFStage1Button
+        ' 
+        SAFStage1Button.BackgroundImage = My.Resources.Resources.Stage1
+        SAFStage1Button.FlatAppearance.BorderSize = 0
+        SAFStage1Button.FlatStyle = FlatStyle.Flat
+        SAFStage1Button.Location = New Point(3, 271)
+        SAFStage1Button.Name = "SAFStage1Button"
+        SAFStage1Button.Size = New Size(96, 80)
+        SAFStage1Button.TabIndex = 10
+        SAFStage1Button.UseVisualStyleBackColor = True
+        ' 
+        ' Label2
+        ' 
+        Label2.Font = New Font("Segoe UI Semibold", 20F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Location = New Point(3, 220)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(300, 48)
+        Label2.TabIndex = 9
+        Label2.Text = """Show a Friend"" stages"
+        Label2.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' ExtraStageButton
+        ' 
+        ExtraStageButton.BackgroundImage = My.Resources.Resources.ExtraStage
+        ExtraStageButton.FlatAppearance.BorderSize = 0
+        ExtraStageButton.FlatStyle = FlatStyle.Flat
+        ExtraStageButton.Location = New Point(207, 137)
+        ExtraStageButton.Name = "ExtraStageButton"
+        ExtraStageButton.Size = New Size(96, 80)
+        ExtraStageButton.TabIndex = 8
+        ExtraStageButton.UseVisualStyleBackColor = True
+        ' 
+        ' BonusStageButton
+        ' 
+        BonusStageButton.BackgroundImage = My.Resources.Resources.BonusStage
+        BonusStageButton.FlatAppearance.BorderSize = 0
+        BonusStageButton.FlatStyle = FlatStyle.Flat
+        BonusStageButton.Location = New Point(105, 137)
+        BonusStageButton.Name = "BonusStageButton"
+        BonusStageButton.Size = New Size(96, 80)
+        BonusStageButton.TabIndex = 7
+        BonusStageButton.UseVisualStyleBackColor = True
+        ' 
+        ' Stage4Button
+        ' 
+        Stage4Button.BackgroundImage = My.Resources.Resources.Stage4
+        Stage4Button.FlatAppearance.BorderSize = 0
+        Stage4Button.FlatStyle = FlatStyle.Flat
+        Stage4Button.Location = New Point(3, 137)
+        Stage4Button.Name = "Stage4Button"
+        Stage4Button.Size = New Size(96, 80)
+        Stage4Button.TabIndex = 6
+        Stage4Button.UseVisualStyleBackColor = True
+        ' 
+        ' Stage3Button
+        ' 
+        Stage3Button.BackgroundImage = My.Resources.Resources.Stage3
+        Stage3Button.FlatAppearance.BorderSize = 0
+        Stage3Button.FlatStyle = FlatStyle.Flat
+        Stage3Button.Location = New Point(207, 51)
+        Stage3Button.Name = "Stage3Button"
+        Stage3Button.Size = New Size(96, 80)
+        Stage3Button.TabIndex = 5
+        Stage3Button.UseVisualStyleBackColor = True
+        ' 
+        ' Stage2Button
+        ' 
+        Stage2Button.BackgroundImage = My.Resources.Resources.Stage2
+        Stage2Button.FlatAppearance.BorderSize = 0
+        Stage2Button.FlatStyle = FlatStyle.Flat
+        Stage2Button.Location = New Point(105, 51)
+        Stage2Button.Name = "Stage2Button"
+        Stage2Button.Size = New Size(96, 80)
+        Stage2Button.TabIndex = 4
+        Stage2Button.UseVisualStyleBackColor = True
+        ' 
+        ' Label1
+        ' 
+        Label1.Font = New Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Location = New Point(3, 0)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(300, 48)
+        Label1.TabIndex = 3
+        Label1.Text = "Main stages"
+        Label1.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' ScoreEditor
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(524, 456)
+        Controls.Add(Panel2)
+        Controls.Add(Panel1)
+        FormBorderStyle = FormBorderStyle.FixedSingle
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        MaximizeBox = False
+        Name = "ScoreEditor"
+        Text = "Score editor"
+        Panel1.ResumeLayout(False)
+        Panel1.PerformLayout()
+        CType(MaxComboBox, ComponentModel.ISupportInitialize).EndInit()
+        CType(ScoreBox5, ComponentModel.ISupportInitialize).EndInit()
+        CType(ScoreBox4, ComponentModel.ISupportInitialize).EndInit()
+        CType(ScoreBox3, ComponentModel.ISupportInitialize).EndInit()
+        CType(ScoreBox2, ComponentModel.ISupportInitialize).EndInit()
+        CType(ScoreBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(FacePicture5, ComponentModel.ISupportInitialize).EndInit()
+        CType(FacePicture4, ComponentModel.ISupportInitialize).EndInit()
+        CType(FacePicture3, ComponentModel.ISupportInitialize).EndInit()
+        CType(FacePicture2, ComponentModel.ISupportInitialize).EndInit()
+        CType(FacePicture1, ComponentModel.ISupportInitialize).EndInit()
+        Panel2.ResumeLayout(False)
+        ResumeLayout(False)
 
     End Sub
 
@@ -422,5 +463,9 @@ Partial Class ScoreEditor
     Friend WithEvents ScoreBox3 As NumericUpDown
     Friend WithEvents ScoreBox2 As NumericUpDown
     Friend WithEvents Label3 As Label
-    Friend WithEvents BestComboBox As NumericUpDown
+    Friend WithEvents MaxComboBox As NumericUpDown
+    Friend WithEvents LevelWinCheckBox As CheckBox
+    Friend WithEvents LevelAnimCheckBox As CheckBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

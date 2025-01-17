@@ -1,14 +1,14 @@
 ﻿Public Class ScoreEditor
-    ReadOnly Stage1 = 0
-    ReadOnly Stage2 = 1
-    ReadOnly Stage3 = 2
-    ReadOnly Stage4 = 3
-    ReadOnly BonusStage = 4
-    ReadOnly ExtraStage = 5
-    ReadOnly SAFStage1 = 6
-    ReadOnly SAFStage2 = 7
-    ReadOnly SAFBonusStage = 8
-    ReadOnly InitStage = 9
+    ReadOnly Stage1 As Int32 = 0
+    ReadOnly Stage2 As Int32 = 1
+    ReadOnly Stage3 As Int32 = 2
+    ReadOnly Stage4 As Int32 = 3
+    ReadOnly BonusStage As Int32 = 4
+    ReadOnly ExtraStage As Int32 = 5
+    ReadOnly SAFStage1 As Int32 = 6
+    ReadOnly SAFStage2 As Int32 = 7
+    ReadOnly SAFBonusStage As Int32 = 8
+    ReadOnly InitStage As Int32 = 9
 
     Public SelectedStage = -1
 
@@ -21,70 +21,79 @@
         KbbEditor.KbbSaveInfo.ExtraStageUnlocked,
         KbbEditor.KbbSaveInfo.SAFStage1Unlocked,
         KbbEditor.KbbSaveInfo.SAFStage2Unlocked,
-        KbbEditor.KbbSaveInfo.SAFBonusStageUnlocked
+        KbbEditor.KbbSaveInfo.SAFBonusStageUnlocked,
+        2
     }
 
     ReadOnly StageOtherLockStates = {
-        2,
-        KbbEditor.KbbSaveInfo.Stage2UnlockingSeen,
-        KbbEditor.KbbSaveInfo.Stage3UnlockingSeen,
-        KbbEditor.KbbSaveInfo.Stage4UnlockingSeen,
-        KbbEditor.KbbSaveInfo.BonusStageUnlockingSeen,
-        KbbEditor.KbbSaveInfo.ExtraStageUnlockingSeen,
-        KbbEditor.KbbSaveInfo.SAFStage1UnlockingSeen,
-        KbbEditor.KbbSaveInfo.SAFStage2UnlockingSeen,
-        KbbEditor.KbbSaveInfo.SAFBonusStageUnlockingSeen
+        KbbEditor.KbbSaveInfo.Stage1UnlockAnim,
+        KbbEditor.KbbSaveInfo.Stage2UnlockAnim,
+        KbbEditor.KbbSaveInfo.Stage3UnlockAnim,
+        KbbEditor.KbbSaveInfo.Stage4UnlockAnim,
+        KbbEditor.KbbSaveInfo.BonusStageUnlockAnim,
+        KbbEditor.KbbSaveInfo.ExtraStageUnlockAnim,
+        KbbEditor.KbbSaveInfo.SAFStage1UnlockAnim,
+        KbbEditor.KbbSaveInfo.SAFStage2UnlockAnim,
+        KbbEditor.KbbSaveInfo.SAFBonusStageUnlockAnim,
+        2
     }
 
     Private Sub LoadScoreData(Stage)
-        For i = 0 To 8
-            If i = Stage Then
-                SelectedStage = i
-                BestComboBox.Text = KbbEditor.KbbScores(i).BestCombo
-                ScoreBox1.Text = KbbEditor.KbbScores(i).Score1
-                ScoreBox2.Text = KbbEditor.KbbScores(i).Score2
-                ScoreBox3.Text = KbbEditor.KbbScores(i).Score3
-                ScoreBox4.Text = KbbEditor.KbbScores(i).Score4
-                ScoreBox5.Text = KbbEditor.KbbScores(i).Score5
-                If KbbEditor.KbbScores(i).Score1FID <> &HFFFFFFFFUI Then
-                    FacePicture1.Image = My.Resources.FaceHole
-                    FacePicture1.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.KbbScores(i).Score1FID)
-                Else
-                    FacePicture1.Image = My.Resources.NoFace
-                End If
-                If KbbEditor.KbbScores(i).Score2FID <> &HFFFFFFFFUI Then
-                    FacePicture2.Image = My.Resources.FaceHole
-                    FacePicture2.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.KbbScores(i).Score2FID)
-                Else
-                    FacePicture2.Image = My.Resources.NoFace
-                End If
-                If KbbEditor.KbbScores(i).Score3FID <> &HFFFFFFFFUI Then
-                    FacePicture3.Image = My.Resources.FaceHole
-                    FacePicture3.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.KbbScores(i).Score3FID)
-                Else
-                    FacePicture3.Image = My.Resources.NoFace
-                End If
-                If KbbEditor.KbbScores(i).Score4FID <> &HFFFFFFFFUI Then
-                    FacePicture4.Image = My.Resources.FaceHole
-                    FacePicture4.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.KbbScores(i).Score4FID)
-                Else
-                    FacePicture4.Image = My.Resources.NoFace
-                End If
-                If KbbEditor.KbbScores(i).Score5FID <> &HFFFFFFFFUI Then
-                    FacePicture5.Image = My.Resources.FaceHole
-                    FacePicture5.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.KbbScores(i).Score5FID)
-                Else
-                    FacePicture5.Image = My.Resources.NoFace
-                End If
-                If i = Stage1 Then
-                    LevelLockCheckBox.Checked = CheckState.Checked
-                    LevelLockCheckBox.Enabled = False
-                Else
-                    LevelLockCheckBox.Checked = StageLockStates(i)
-                    LevelLockCheckBox.Enabled = True
-                End If
-            End If
-        Next
+        SelectedStage = Stage
+        MaxComboBox.Text = KbbEditor.KbbScores(Stage).BestCombo
+        ScoreBox1.Text = KbbEditor.KbbScores(Stage).Score1
+        ScoreBox2.Text = KbbEditor.KbbScores(Stage).Score2
+        ScoreBox3.Text = KbbEditor.KbbScores(Stage).Score3
+        ScoreBox4.Text = KbbEditor.KbbScores(Stage).Score4
+        ScoreBox5.Text = KbbEditor.KbbScores(Stage).Score5
+        If KbbEditor.KbbScores(Stage).Score1FID <> &HFFFFFFFFUI Then
+            FacePicture1.Image = My.Resources.FaceHole
+            FacePicture1.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.KbbScores(Stage).Score1FID)
+        Else
+            FacePicture1.Image = My.Resources.NoFace
+        End If
+        If KbbEditor.KbbScores(Stage).Score2FID <> &HFFFFFFFFUI Then
+            FacePicture2.Image = My.Resources.FaceHole
+            FacePicture2.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.KbbScores(Stage).Score2FID)
+        Else
+            FacePicture2.Image = My.Resources.NoFace
+        End If
+        If KbbEditor.KbbScores(Stage).Score3FID <> &HFFFFFFFFUI Then
+            FacePicture3.Image = My.Resources.FaceHole
+            FacePicture3.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.KbbScores(Stage).Score3FID)
+        Else
+            FacePicture3.Image = My.Resources.NoFace
+        End If
+        If KbbEditor.KbbScores(Stage).Score4FID <> &HFFFFFFFFUI Then
+            FacePicture4.Image = My.Resources.FaceHole
+            FacePicture4.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.KbbScores(Stage).Score4FID)
+        Else
+            FacePicture4.Image = My.Resources.NoFace
+        End If
+        If KbbEditor.KbbScores(Stage).Score5FID <> &HFFFFFFFFUI Then
+            FacePicture5.Image = My.Resources.FaceHole
+            FacePicture5.BackgroundImage = KbbEditor.GetFaceImage(KbbEditor.KbbScores(Stage).Score5FID)
+        Else
+            FacePicture5.Image = My.Resources.NoFace
+        End If
+        If Stage = Stage1 Then
+            LevelLockCheckBox.Checked = CheckState.Checked
+            LevelLockCheckBox.Enabled = False
+            LevelAnimCheckBox.Checked = StageOtherLockStates(Stage)
+            LevelAnimCheckBox.Enabled = True
+        ElseIf Stage = InitStage Then
+            LevelLockCheckBox.Checked = CheckState.Checked
+            LevelLockCheckBox.Enabled = False
+            LevelAnimCheckBox.Checked = CheckState.Indeterminate
+            LevelAnimCheckBox.Enabled = False
+        Else
+            LevelLockCheckBox.Checked = StageLockStates(Stage)
+            LevelLockCheckBox.Enabled = True
+            LevelAnimCheckBox.Checked = StageOtherLockStates(Stage)
+            LevelAnimCheckBox.Enabled = True
+        End If
+        LevelAnimCheckBox.Checked = StageOtherLockStates(Stage)
+        LevelWinCheckBox.Checked = KbbEditor.KbbScores(Stage).StageBeaten
     End Sub
 
     Private Sub ScoreEditor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -184,12 +193,31 @@
         SAFBonusStageButton.BackgroundImage = My.Resources.BonusStageSelect
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        LoadScoreData(InitStage)
+        GrayAllButtons()
+    End Sub
+
+    Private Sub LevelWinCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles LevelWinCheckBox.CheckedChanged
+        If LevelWinCheckBox.Checked = False Then
+            KbbEditor.KbbScores(SelectedStage).StageBeaten = False
+        Else
+            KbbEditor.KbbScores(SelectedStage).StageBeaten = True
+        End If
+    End Sub
+
     Private Sub LevelLockCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles LevelLockCheckBox.CheckedChanged
         If LevelLockCheckBox.Checked = False Then
             StageLockStates(SelectedStage) = False
-            StageOtherLockStates(SelectedStage) = False
         Else
             StageLockStates(SelectedStage) = True
+        End If
+    End Sub
+
+    Private Sub LevelAnimCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles LevelAnimCheckBox.CheckedChanged
+        If LevelLockCheckBox.Checked = False Then
+            StageOtherLockStates(SelectedStage) = False
+        Else
             StageOtherLockStates(SelectedStage) = True
         End If
     End Sub
@@ -203,7 +231,7 @@
     End Sub
 
     Private Sub ScoreBox3_ValueChanged(sender As Object, e As EventArgs) Handles ScoreBox3.ValueChanged
-        KbbEditor.KbbScores(SelectedStage).Score3 = CStr(ScoreBox3.Value)
+        KbbEditor.KbbScores(SelectedStage).Score3 = ScoreBox3.Value
     End Sub
 
     Private Sub ScoreBox4_ValueChanged(sender As Object, e As EventArgs) Handles ScoreBox4.ValueChanged
@@ -214,8 +242,8 @@
         KbbEditor.KbbScores(SelectedStage).Score5 = ScoreBox5.Value
     End Sub
 
-    Private Sub BestComboBox_ValueChanged(sender As Object, e As EventArgs) Handles BestComboBox.ValueChanged
-        KbbEditor.KbbScores(SelectedStage).BestCombo = BestComboBox.Value
+    Private Sub BestComboBox_ValueChanged(sender As Object, e As EventArgs) Handles MaxComboBox.ValueChanged
+        KbbEditor.KbbScores(SelectedStage).BestCombo = MaxComboBox.Value
     End Sub
 
     Private Sub FacePicture1_Click(sender As Object, e As EventArgs) Handles FacePicture1.Click
@@ -257,13 +285,14 @@
         KbbEditor.KbbSaveInfo.SAFStage1Unlocked = StageLockStates(6)
         KbbEditor.KbbSaveInfo.SAFStage2Unlocked = StageLockStates(7)
         KbbEditor.KbbSaveInfo.SAFBonusStageUnlocked = StageLockStates(8)
-        KbbEditor.KbbSaveInfo.Stage2Unlocked = StageOtherLockStates(1)
-        KbbEditor.KbbSaveInfo.Stage3Unlocked = StageOtherLockStates(2)
-        KbbEditor.KbbSaveInfo.Stage4Unlocked = StageOtherLockStates(3)
-        KbbEditor.KbbSaveInfo.BonusStageUnlocked = StageOtherLockStates(4)
-        KbbEditor.KbbSaveInfo.ExtraStageUnlocked = StageOtherLockStates(5)
-        KbbEditor.KbbSaveInfo.SAFStage1Unlocked = StageOtherLockStates(6)
-        KbbEditor.KbbSaveInfo.SAFStage2Unlocked = StageOtherLockStates(7)
-        KbbEditor.KbbSaveInfo.SAFBonusStageUnlocked = StageOtherLockStates(8)
+        KbbEditor.KbbSaveInfo.Stage1UnlockAnim = StageOtherLockStates(0)
+        KbbEditor.KbbSaveInfo.Stage2UnlockAnim = StageOtherLockStates(1)
+        KbbEditor.KbbSaveInfo.Stage3UnlockAnim = StageOtherLockStates(2)
+        KbbEditor.KbbSaveInfo.Stage4UnlockAnim = StageOtherLockStates(3)
+        KbbEditor.KbbSaveInfo.BonusStageUnlockAnim = StageOtherLockStates(4)
+        KbbEditor.KbbSaveInfo.ExtraStageUnlockAnim = StageOtherLockStates(5)
+        KbbEditor.KbbSaveInfo.SAFStage1UnlockAnim = StageOtherLockStates(6)
+        KbbEditor.KbbSaveInfo.SAFStage2UnlockAnim = StageOtherLockStates(7)
+        KbbEditor.KbbSaveInfo.SAFBonusStageUnlockAnim = StageOtherLockStates(8)
     End Sub
 End Class
